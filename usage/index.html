@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://oen44.github.io/yggdrasil/">
+        <link rel="canonical" href="https://oen44.github.io/yggdrasil/usage/">
       
       
+        <link rel="prev" href="../prefabs/">
       
-        <link rel="next" href="getting-started/">
+      
+        <link rel="next" href="../serialization/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Yggdrasil API</title>
+        <title>Using trees in-game - Yggdrasil API</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#home" class="md-skip">
+        <a href="#using-trees-in-game" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Yggdrasil API" class="md-header__button md-logo" aria-label="Yggdrasil API" data-md-component="logo">
+    <a href=".." title="Yggdrasil API" class="md-header__button md-logo" aria-label="Yggdrasil API" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Using trees in-game
             
           </span>
         </div>
@@ -224,7 +226,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Yggdrasil API" class="md-nav__button md-logo" aria-label="Yggdrasil API" data-md-component="logo">
+    <a href=".." title="Yggdrasil API" class="md-nav__button md-logo" aria-label="Yggdrasil API" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -239,19 +241,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -267,7 +260,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -279,7 +271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -306,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="prefabs/" class="md-nav__link">
+      <a href="../prefabs/" class="md-nav__link">
         
   
   
@@ -330,10 +322,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="usage/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using trees in-game
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -349,6 +368,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-yggdrasiltree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading YggdrasilTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-yggdrasiltree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building YggdrasilTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -360,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="serialization/" class="md-nav__link">
+      <a href="../serialization/" class="md-nav__link">
         
   
   
@@ -387,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="shared/" class="md-nav__link">
+      <a href="../shared/" class="md-nav__link">
         
   
   
@@ -414,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="runtime/" class="md-nav__link">
+      <a href="../runtime/" class="md-nav__link">
         
   
   
@@ -535,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil/" class="md-nav__link">
         
   
   
@@ -563,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-base-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-base-service/" class="md-nav__link">
         
   
   
@@ -591,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-allocation-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-allocation-service/" class="md-nav__link">
         
   
   
@@ -619,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-builder/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-builder/" class="md-nav__link">
         
   
   
@@ -647,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-camera/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-camera/" class="md-nav__link">
         
   
   
@@ -675,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-connection/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-connection/" class="md-nav__link">
         
   
   
@@ -703,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-connections-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-connections-service/" class="md-nav__link">
         
   
   
@@ -731,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-decorations-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-decorations-service/" class="md-nav__link">
         
   
   
@@ -759,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-line-data/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-line-data/" class="md-nav__link">
         
   
   
@@ -787,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-loader/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-loader/" class="md-nav__link">
         
   
   
@@ -815,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-node-button/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-node-button/" class="md-nav__link">
         
   
   
@@ -843,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-nodes-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-nodes-service/" class="md-nav__link">
         
   
   
@@ -871,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-prefabs-service/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-prefabs-service/" class="md-nav__link">
         
   
   
@@ -899,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-tooltip/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-tooltip/" class="md-nav__link">
         
   
   
@@ -927,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/shared/yggdrasil-tree-view/" class="md-nav__link">
+      <a href="../api/shared/yggdrasil-tree-view/" class="md-nav__link">
         
   
   
@@ -1010,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/runtime/yggdrasil-serializer/" class="md-nav__link">
+      <a href="../api/runtime/yggdrasil-serializer/" class="md-nav__link">
         
   
   
@@ -1066,6 +1127,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-yggdrasiltree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading YggdrasilTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-yggdrasiltree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building YggdrasilTree
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1081,8 +1172,69 @@
 
 
 
-<h1 id="home">Home</h1>
-<p>Welcome to documentation for Yggdrasil toolkit for Godot 4. Please check <a href="getting-started/">Getting Started</a> for first steps!</p>
+<h1 id="using-trees-in-game">Using trees in-game</h1>
+<hr />
+<p>If you haven't, check <a href="../getting-started/">Getting Started</a> first.</p>
+<h2 id="loading-yggdrasiltree">Loading YggdrasilTree</h2>
+<p>To get <code>YggdrasilTree</code> resource, use <code>YggdrasilLoader.load_tree(path: String)</code>.</p>
+<p>In <a href="../getting-started/">Getting Started</a> we have created Group called Spells and Tree called Fire.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Spells
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└─ Fire
+</span></code></pre></div>
+<p>To get <code>YggdrasilTree</code> for our Fire tree, use <code>YggdrasilLoader.load_tree("Spells/Fire")</code>.</p>
+<div class="language-gdscript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll"><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">tree</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilLoader</span><span class="o">.</span><span class="n">load_tree</span><span class="p">(</span><span class="s2">&quot;Spells/Tree&quot;</span><span class="p">)</span>
+</span></span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1"># ...</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="building-yggdrasiltree">Building YggdrasilTree</h2>
+<p>Now that we have our tree resource loaded, we can build it and place in our UI.</p>
+<p>For that we will use <code>YggdrasilBuilder</code>. For full API documentation check <a href="../api/shared/yggdrasil-builder/">YggdrasilBuilder</a>. For now we are interested only in <code>YggdrasilBuilder.new(tree: YggdrasilTree)</code>, <code>YggdrasilBuilder.set_parent(new_parent: Node)</code> and <code>YggdrasilBuilder.build()</code>.</p>
+<p>First we will initialize our builder</p>
+<div class="language-gdscript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">tree</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilLoader</span><span class="o">.</span><span class="n">load_tree</span><span class="p">(</span><span class="s2">&quot;Spells/Tree&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="hll"><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">builder</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</span></span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c1"># ...</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Then we have to provide a parent Node, this is where <code>YggdrasilTreeView</code> will be added. It's recommended to use <code>Node</code> of type <code>Control</code> (can be inherited) with <code>clip_contents</code> set to <code>true</code> (we don't need the tree view to be visible outside the parent).</p>
+<div class="language-gdscript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="hll"><span class="err">@</span><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">tree_parent</span><span class="p">:</span><span class="w"> </span><span class="n">Control</span>
+</span></span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">tree</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilLoader</span><span class="o">.</span><span class="n">load_tree</span><span class="p">(</span><span class="s2">&quot;Spells/Tree&quot;</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">builder</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="hll"><span class="w">    </span><span class="n">builder</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="n">tree_parent</span><span class="p">)</span>
+</span></span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1"># ...</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Now all that is left to do is build the tree and get created <code>YggdrasilTreeView</code>.</p>
+<div class="language-gdscript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span>
+<span class="normal"><a href="#__codelineno-4-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="err">@</span><span class="k">export</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">tree_parent</span><span class="p">:</span><span class="w"> </span><span class="n">Control</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="hll"><span class="k">var</span><span class="w"> </span><span class="n">_tree_view</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilTreeView</span>
+</span></span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">tree</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilLoader</span><span class="o">.</span><span class="n">load_tree</span><span class="p">(</span><span class="s2">&quot;Spells/Tree&quot;</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">builder</span><span class="p">:</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YggdrasilBuilder</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="n">builder</span><span class="o">.</span><span class="n">set_parent</span><span class="p">(</span><span class="n">tree_parent</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="hll"><span class="w">    </span><span class="n">_tree_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</span></span></code></pre></div></td></tr></table></div>
+<p>Done! Our tree is now visible in-game and can be interacted with.</p>
 
 
 
@@ -1132,10 +1284,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -587,6 +587,60 @@
   
   
     <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using trees in-game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serialization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Saving and Loading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../shared/" class="md-nav__link">
         
   
@@ -649,10 +703,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -670,8 +724,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -696,10 +750,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
         
           
-          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
             
   
   
@@ -717,8 +771,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1171,10 +1225,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
             
   
   
@@ -1192,8 +1246,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1522,9 +1576,9 @@
 <p>Now that we have Group created, make sure it is selected and then from <strong>Tree</strong> menu select <strong>Create</strong> or use shortcute <strong>CTRL (Cmd ⌘ on Mac) + N</strong>. Just like with our Group, you have to name your new tree.</p>
 <hr />
 <p>Let's say that our registry now looks like this:</p>
-<pre><code class="language-text">Spells
-└─ Fire
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Spells
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>└─ Fire
+</span></code></pre></div>
 <p>Spells being the group and Fire the tree.</p>
 <h2 id="editing-a-tree">Editing a tree</h2>
 <p>Double click (or Enter when selected) your Tree entry to open new tab with the tree editor.</p>
@@ -1538,21 +1592,21 @@
 <p>Go ahead and create one more node. Now select one of them, then while holding <strong>Shift</strong>, click on the second node. This should create a line between them. You can change line texture in <strong>Settings</strong> tab on the right side. You can also change line style in Inspector when you select node that has outgoing connection. There are 3 styles: <strong>Straight</strong>, <strong>Bezier</strong> and <strong>Arc</strong>. Try them out.</p>
 <h2 id="attributes">Attributes</h2>
 <p>In the <strong>Attributes</strong> tab panel, you can add new attributes that can be then assigned to nodes. Press the button with plus sign to add new attribute entry. Type the name and press enter. Attribute data consists of:</p>
-<pre><code>attribute_id - this is what nodes use and what you will use in your scripts (like additional_life)
-├── Name - this is for you to use
-├── Effect - this is used mostly in tooltips, you can use character '#' as a placeholder for values, there should be as many '#' as the Value count
-└── Value count - for the Effect and Array to hold values
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>attribute_id - this is what nodes use and what you will use in your scripts (like additional_life)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── Name - this is for you to use
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── Effect - this is used mostly in tooltips, you can use character &#39;#&#39; as a placeholder for values, there should be as many &#39;#&#39; as the Value count
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└── Value count - for the Effect and Array to hold values
+</span></code></pre></div>
 <p>Create new Life attribute:</p>
-<pre><code>additional_life
-├── Name: Life
-├── Effect: +# to maximum Life
-└── Value count: 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>additional_life
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── Name: Life
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── Effect: +# to maximum Life
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>└── Value count: 1
+</span></code></pre></div>
 <p>Now if you select any node, there will be checkbox next to the attribute id. So select one of your nodes and then mark that checkbox. If you go back to <strong>Inspector</strong> tab, you will notice new panel appeared called <strong>Attributes</strong>. There you will see your attribute:</p>
-<pre><code>additional_life
-└── Value 1: 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>additional_life
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└── Value 1: 0
+</span></code></pre></div>
 <p>Double-click that <strong>Value 1</strong> entry and set it to 10. Now if you hover over that node with your mouse, you should see "+10 to maximum Life".</p>
 <h2 id="allocation">Allocation</h2>
 <p>If tree has <strong>Allocation</strong> enabled in <strong>Settings</strong>, players will be able to interact with nodes by pressing them like a button. This however requires at least one <strong>Root</strong> node. This is also one of the errors that Validator throws. To mark a node as Root, select that node and in <strong>Inspector</strong> check <strong>Is Root</strong>. That's it, now that node is a Root and so will be the first node that players have to select. There can be multiple Root nodes, if you want multiple starting points or have multiple branches that are not connected.</p>
@@ -1628,7 +1682,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
