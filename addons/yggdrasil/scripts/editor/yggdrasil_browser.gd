@@ -17,6 +17,7 @@ const FuzzySearch = Yggdrasil.FuzzySearch
 @export var trees_count_label: Label
 @export var version_label: Label
 @export var delete_confirmation: ConfirmationDialog
+@export var docs_button: Button
 
 @export_group("Shortcuts")
 @export var delete_shortcut: Shortcut
@@ -40,6 +41,8 @@ func init():
 	_connect_signals()
 	_read_registry()
 	_populate_menus()
+	
+	docs_button.pressed.connect(func(): OS.shell_open("https://oen44.github.io/yggdrasil"))
 
 	var end_time = Time.get_ticks_usec()
 	var load_time = (end_time - start_time) / 1_000_000.

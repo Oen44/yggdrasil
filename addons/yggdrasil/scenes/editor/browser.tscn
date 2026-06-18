@@ -8,8 +8,19 @@
 [ext_resource type="Shortcut" uid="uid://c62il0h6alnob" path="res://addons/yggdrasil/shortcuts/new_tree.tres" id="4_fpm24"]
 [ext_resource type="Shortcut" uid="uid://8yyn8n7k5cx7" path="res://addons/yggdrasil/shortcuts/rename.tres" id="4_k657g"]
 [ext_resource type="Shortcut" uid="uid://do5ll41g08v5b" path="res://addons/yggdrasil/shortcuts/duplicate.tres" id="5_lb6tk"]
+[ext_resource type="Script" uid="uid://b34ae5gksjq55" path="res://addons/yggdrasil/scripts/editor/ui/icon_button.gd" id="9_fvkcx"]
 
-[node name="Browser" type="MarginContainer" unique_id=2118647903 node_paths=PackedStringArray("tree_ui", "search_bar", "group_menu", "tree_menu", "load_time_label", "groups_count_label", "trees_count_label", "version_label", "delete_confirmation")]
+[sub_resource type="DPITexture" id="DPITexture_fvkcx"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 9 5.5-5.5L8 1h7v7l-2.5-2.5L7 11zm7 6H4a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h2a1 1 0 0 1 0 2H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-2a1 1 0 0 1 2 0v2a3 3 0 0 1-3 3z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="Browser" type="MarginContainer" unique_id=2118647903 node_paths=PackedStringArray("tree_ui", "search_bar", "group_menu", "tree_menu", "load_time_label", "groups_count_label", "trees_count_label", "version_label", "delete_confirmation", "docs_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,8 +38,9 @@ tree_menu = NodePath("VBoxContainer/HBoxContainer/TreeMenu")
 load_time_label = NodePath("VBoxContainer/MarginContainer/HBoxContainer/LoadTime")
 groups_count_label = NodePath("VBoxContainer/MarginContainer/HBoxContainer/GroupsCount")
 trees_count_label = NodePath("VBoxContainer/MarginContainer/HBoxContainer/TreesCount")
-version_label = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Version")
+version_label = NodePath("VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/Version")
 delete_confirmation = NodePath("DeleteConfirmation")
+docs_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer/DocsButton")
 delete_shortcut = ExtResource("2_la0mn")
 new_group_shortcut = ExtResource("3_pf2ul")
 new_tree_shortcut = ExtResource("4_fpm24")
@@ -102,9 +114,25 @@ layout_mode = 2
 layout_mode = 2
 text = "Total trees: 6"
 
-[node name="Version" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=714705227]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1652075552]
 layout_mode = 2
 size_flags_horizontal = 10
+
+[node name="DocsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=809595735]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Online Docs"
+icon = SubResource("DPITexture_fvkcx")
+flat = true
+script = ExtResource("9_fvkcx")
+icon_name = "ExternalLink"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1158448922]
+layout_mode = 2
+
+[node name="Version" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=714705227]
+layout_mode = 2
+size_flags_horizontal = 0
 text = "v1.0.0"
 
 [node name="DeleteConfirmation" type="ConfirmationDialog" parent="." unique_id=450558619]
