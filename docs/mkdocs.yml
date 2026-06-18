@@ -4,6 +4,28 @@ site_url: https://oen44.github.io/yggdrasil
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Prefabs: prefabs.md
+  - Shared Scripts: shared.md
+  - Runtime Scripts: runtime.md
+  - API Reference:
+      - Shared:
+          - Yggdrasil: api/shared/yggdrasil.md
+          - YggdrasilBaseService: api/shared/yggdrasil-base-service.md
+          - YggdrasilAllocationService: api/shared/yggdrasil-allocation-service.md
+          - YggdrasilBuilder: api/shared/yggdrasil-builder.md
+          - YggdrasilCamera: api/shared/yggdrasil-camera.md
+          - YggdrasilConnection: api/shared/yggdrasil-connection.md
+          - YggdrasilConnectionsService: api/shared/yggdrasil-connections-service.md
+          - YggdrasilDecorationsService: api/shared/yggdrasil-decorations-service.md
+          - YggdrasilLineData: api/shared/yggdrasil-line-data.md
+          - YggdrasilLoader: api/shared/yggdrasil-loader.md
+          - YggdrasilNodeButton: api/shared/yggdrasil-node-button.md
+          - YggdrasilNodesService: api/shared/yggdrasil-nodes-service.md
+          - YggdrasilPrefabsService: api/shared/yggdrasil-prefabs-service.md
+          - YggdrasilTooltip: api/shared/yggdrasil-tooltip.md
+          - YggdrasilTreeView: api/shared/yggdrasil-tree-view.md
+      - Runtime:
+          - YggdrasilSerializer: api/runtime/yggdrasil-serializer.md
 
 theme:
   name: material
@@ -31,3 +53,4 @@ theme:
 markdown_extensions:
   - attr_list
   - admonition
+  - tables
