@@ -1,4 +1,4 @@
-const VERSION = "1.0.2"
+const VERSION = "1.0.3"
 
 const ROOT_PATH_SETTING = "addons/yggdrasil/root_path"
 const DEFAULT_ROOT_PATH = "res://yggdrasil_data"

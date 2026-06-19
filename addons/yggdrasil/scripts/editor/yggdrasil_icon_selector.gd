@@ -43,10 +43,22 @@ func load_icons(node_type: YggdrasilNode.NodeType):
 	for y in range(rows):
 		for x in range(columns):
 			var region = Rect2(x * icon_size.x, y * icon_size.y, icon_size.x, icon_size.y)
+			if _is_region_empty(icons_texture, region):
+				continue
+			
 			var icon = AtlasTexture.new()
 			icon.atlas = icons_texture
 			icon.region = region
 			icons_list.add_icon_item(icon)
+
+func _is_region_empty(texture: Texture2D, region: Rect2) -> bool:
+	var img = texture.get_image()
+	for y in range(region.size.y):
+		for x in range(region.size.x):
+			var pixel = img.get_pixel(region.position.x + x, region.position.y + y)
+			if pixel.a > 0:
+				return false
+	return true
 
 func _on_browse_pressed():
 	EditorInterface.popup_quick_open(_on_icon_texture_selected, ["Texture2D"])
