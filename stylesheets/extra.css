@@ -1,0 +1,7 @@
+[data-md-color-scheme="default"] :is(.type, .param) {
+    color: #646464;
+}
+
+[data-md-color-scheme="slate"] :is(.type, .param) {
+    color: #929598;
+}

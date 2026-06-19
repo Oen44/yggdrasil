@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://oen44.github.io/yggdrasil/api/shared/yggdrasil-allocation-service/">
+        <link rel="canonical" href="https://oen44.github.io/yggdrasil/api/resources/yggdrasil-prefab/">
       
       
-        <link rel="prev" href="../yggdrasil-base-service/">
+        <link rel="prev" href="../yggdrasil-node/">
       
       
-        <link rel="next" href="../yggdrasil-builder/">
+        <link rel="next" href="../yggdrasil-attribute/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>YggdrasilAllocationService - Yggdrasil API</title>
+        <title>YggdrasilPrefab - Yggdrasil API</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tool-yggdrasilallocationservice-api" class="md-skip">
+        <a href="#tool-yggdrasilprefab-api" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YggdrasilAllocationService
+              YggdrasilPrefab
             
           </span>
         </div>
@@ -417,20 +417,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
         
           
           <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
@@ -451,7 +449,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -469,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil/" class="md-nav__link">
+      <a href="../../shared/yggdrasil/" class="md-nav__link">
         
   
   
@@ -497,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-base-service/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-base-service/" class="md-nav__link">
         
   
   
@@ -522,37 +520,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YggdrasilAllocationService
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../shared/yggdrasil-allocation-service/" class="md-nav__link">
         
   
   
@@ -568,374 +539,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signals
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Properties
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Methods
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#signal-descriptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signal Descriptions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Signal Descriptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_preallocated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_preallocated(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_unpreallocated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_unpreallocated(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_allocated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_allocated(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_deallocated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_deallocated(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-refund_mode_entered" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        refund_mode_entered()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-refund_mode_exited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        refund_mode_exited()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_refund_added" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_refund_added(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_refund_removed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_refund_removed(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#property-descriptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Property Descriptions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Property Descriptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#property-preallocation_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callable preallocation_check = Callable()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-allocation_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callable allocation_check = Callable()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-deallocation_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callable deallocation_check = Callable()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-refund_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callable refund_check = Callable()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-_preallocated_nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Array[int] _preallocated_nodes = []
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-_refund_nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Array[int] _refund_nodes = []
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#property-_refund_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        bool _refund_mode = false
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#method-descriptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method Descriptions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Method Descriptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#load_tree" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void load_tree(tree_data: YggdrasilTree)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#on_node_pressed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void on_node_pressed(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confirm_preallocations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void confirm_preallocations()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clear_preallocations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void clear_preallocations()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enter_refund_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void enter_refund_mode()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exit_refund_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void exit_refund_mode()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confirm_refund" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        void confirm_refund()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_refund_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        bool is_refund_mode()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_refund_nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Array[int] get_refund_nodes()
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -948,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-builder/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-builder/" class="md-nav__link">
         
   
   
@@ -976,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-camera/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-camera/" class="md-nav__link">
         
   
   
@@ -1004,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-connection/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-connection/" class="md-nav__link">
         
   
   
@@ -1032,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-connections-service/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-connections-service/" class="md-nav__link">
         
   
   
@@ -1060,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-decorations-service/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-decorations-service/" class="md-nav__link">
         
   
   
@@ -1088,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-line-data/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-line-data/" class="md-nav__link">
         
   
   
@@ -1116,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-loader/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-loader/" class="md-nav__link">
         
   
   
@@ -1144,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-node-button/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-node-button/" class="md-nav__link">
         
   
   
@@ -1172,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-nodes-service/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-nodes-service/" class="md-nav__link">
         
   
   
@@ -1200,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-prefabs-service/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-prefabs-service/" class="md-nav__link">
         
   
   
@@ -1228,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-tooltip/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-tooltip/" class="md-nav__link">
         
   
   
@@ -1256,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yggdrasil-tree-view/" class="md-nav__link">
+      <a href="../../shared/yggdrasil-tree-view/" class="md-nav__link">
         
   
   
@@ -1372,18 +975,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -1404,7 +1009,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1422,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-registry/" class="md-nav__link">
+      <a href="../yggdrasil-registry/" class="md-nav__link">
         
   
   
@@ -1450,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-group/" class="md-nav__link">
+      <a href="../yggdrasil-group/" class="md-nav__link">
         
   
   
@@ -1478,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-tree/" class="md-nav__link">
+      <a href="../yggdrasil-tree/" class="md-nav__link">
         
   
   
@@ -1506,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-tree-state/" class="md-nav__link">
+      <a href="../yggdrasil-tree-state/" class="md-nav__link">
         
   
   
@@ -1534,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-connection.md" class="md-nav__link">
+      <a href="../yggdrasil-connection.md" class="md-nav__link">
         
   
   
@@ -1562,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-node/" class="md-nav__link">
+      <a href="../yggdrasil-node/" class="md-nav__link">
         
   
   
@@ -1587,10 +1192,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-prefab/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YggdrasilPrefab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1606,6 +1238,407 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-name_changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        name_changed(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-description_changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        description_changed(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-icon_changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        icon_changed(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-border_changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        border_changed(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-attribute_changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        attribute_changed(prefab: YggdrasilPrefab, attribute_id: String, removed: bool)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Property Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Property Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-reference_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String reference_id = ""
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String id = ""
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-node_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String node_name = ""
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String description = ""
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NodeType type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-icon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D icon = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-border_normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D border_normal = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-border_intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D border_intermediate = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-border_active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D border_active = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary[String, Array] attributes = {}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Array[YggdrasilNodeButton] nodes = []
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void add_node(node: YggdrasilNodeButton)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void remove_node(node: YggdrasilNodeButton)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_node_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_node_name(new_name: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_description(new_description: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_icon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_icon(new_icon: Texture2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_border_normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_border_normal(new_border: Texture2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_border_intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_border_intermediate(new_border: Texture2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_border_active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_border_active(new_border: Texture2D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_attribute(attribute_id: String, values: Array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove_attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void remove_attribute(attribute_id: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_attribute_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_attribute_value(attribute_id: String, index: int, value: Variant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1618,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/yggdrasil-attribute/" class="md-nav__link">
+      <a href="../yggdrasil-attribute/" class="md-nav__link">
         
   
   
@@ -1726,10 +1759,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#signal-node_preallocated" class="md-nav__link">
+  <a href="#signal-name_changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        node_preallocated(node: YggdrasilNodeButton)
+        name_changed(prefab: YggdrasilPrefab)
       
     </span>
   </a>
@@ -1737,10 +1770,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signal-node_unpreallocated" class="md-nav__link">
+  <a href="#signal-description_changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        node_unpreallocated(node: YggdrasilNodeButton)
+        description_changed(prefab: YggdrasilPrefab)
       
     </span>
   </a>
@@ -1748,10 +1781,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signal-node_allocated" class="md-nav__link">
+  <a href="#signal-icon_changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        node_allocated(node: YggdrasilNodeButton)
+        icon_changed(prefab: YggdrasilPrefab)
       
     </span>
   </a>
@@ -1759,10 +1792,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signal-node_deallocated" class="md-nav__link">
+  <a href="#signal-border_changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        node_deallocated(node: YggdrasilNodeButton)
+        border_changed(prefab: YggdrasilPrefab)
       
     </span>
   </a>
@@ -1770,43 +1803,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signal-refund_mode_entered" class="md-nav__link">
+  <a href="#signal-attribute_changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        refund_mode_entered()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-refund_mode_exited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        refund_mode_exited()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_refund_added" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_refund_added(node: YggdrasilNodeButton)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-node_refund_removed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        node_refund_removed(node: YggdrasilNodeButton)
+        attribute_changed(prefab: YggdrasilPrefab, attribute_id: String, removed: bool)
       
     </span>
   </a>
@@ -1831,10 +1831,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#property-preallocation_check" class="md-nav__link">
+  <a href="#property-reference_id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callable preallocation_check = Callable()
+        String reference_id = ""
       
     </span>
   </a>
@@ -1842,10 +1842,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-allocation_check" class="md-nav__link">
+  <a href="#property-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callable allocation_check = Callable()
+        String id = ""
       
     </span>
   </a>
@@ -1853,10 +1853,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-deallocation_check" class="md-nav__link">
+  <a href="#property-node_name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callable deallocation_check = Callable()
+        String node_name = ""
       
     </span>
   </a>
@@ -1864,10 +1864,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-refund_check" class="md-nav__link">
+  <a href="#property-description" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Callable refund_check = Callable()
+        String description = ""
       
     </span>
   </a>
@@ -1875,10 +1875,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-_preallocated_nodes" class="md-nav__link">
+  <a href="#property-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array[int] _preallocated_nodes = []
+        NodeType type
       
     </span>
   </a>
@@ -1886,10 +1886,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-_refund_nodes" class="md-nav__link">
+  <a href="#property-icon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array[int] _refund_nodes = []
+        Texture2D icon = null
       
     </span>
   </a>
@@ -1897,10 +1897,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#property-_refund_mode" class="md-nav__link">
+  <a href="#property-border_normal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        bool _refund_mode = false
+        Texture2D border_normal = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-border_intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D border_intermediate = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-border_active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Texture2D border_active = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary[String, Array] attributes = {}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Array[YggdrasilNodeButton] nodes = []
       
     </span>
   </a>
@@ -1925,10 +1969,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#load_tree" class="md-nav__link">
+  <a href="#add_node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void load_tree(tree_data: YggdrasilTree)
+        void add_node(node: YggdrasilNodeButton)
       
     </span>
   </a>
@@ -1936,10 +1980,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#on_node_pressed" class="md-nav__link">
+  <a href="#remove_node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void on_node_pressed(node: YggdrasilNodeButton)
+        void remove_node(node: YggdrasilNodeButton)
       
     </span>
   </a>
@@ -1947,10 +1991,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confirm_preallocations" class="md-nav__link">
+  <a href="#set_node_name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void confirm_preallocations()
+        void set_node_name(new_name: String)
       
     </span>
   </a>
@@ -1958,10 +2002,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clear_preallocations" class="md-nav__link">
+  <a href="#set_description" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void clear_preallocations()
+        void set_description(new_description: String)
       
     </span>
   </a>
@@ -1969,10 +2013,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enter_refund_mode" class="md-nav__link">
+  <a href="#set_icon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void enter_refund_mode()
+        void set_icon(new_icon: Texture2D)
       
     </span>
   </a>
@@ -1980,10 +2024,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exit_refund_mode" class="md-nav__link">
+  <a href="#set_border_normal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void exit_refund_mode()
+        void set_border_normal(new_border: Texture2D)
       
     </span>
   </a>
@@ -1991,10 +2035,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#confirm_refund" class="md-nav__link">
+  <a href="#set_border_intermediate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        void confirm_refund()
+        void set_border_intermediate(new_border: Texture2D)
       
     </span>
   </a>
@@ -2002,10 +2046,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#is_refund_mode" class="md-nav__link">
+  <a href="#set_border_active" class="md-nav__link">
     <span class="md-ellipsis">
       
-        bool is_refund_mode()
+        void set_border_active(new_border: Texture2D)
       
     </span>
   </a>
@@ -2013,10 +2057,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_refund_nodes" class="md-nav__link">
+  <a href="#set_attribute" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array[int] get_refund_nodes()
+        void set_attribute(attribute_id: String, values: Array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove_attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void remove_attribute(attribute_id: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_attribute_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void set_attribute_value(attribute_id: String, index: int, value: Variant)
       
     </span>
   </a>
@@ -2045,8 +2111,8 @@
 
 
 
-<h1 id="tool-yggdrasilallocationservice-api"><code>@tool</code> YggdrasilAllocationService API</h1>
-<p>Service for allocating, preallocating, refunding, and deallocating nodes in <code>YggdrasilTreeView</code>.</p>
+<h1 id="tool-yggdrasilprefab-api"><code>@tool</code> YggdrasilPrefab API</h1>
+<p>Resource that stores shared prefab data for nodes.</p>
 <hr />
 <h2 id="signals">Signals</h2>
 <table>
@@ -2057,28 +2123,19 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="#signal-node_preallocated">node_preallocated</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#signal-name_changed">name_changed</a>(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</td>
 </tr>
 <tr>
-<td><a href="#signal-node_unpreallocated">node_unpreallocated</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#signal-description_changed">description_changed</a>(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</td>
 </tr>
 <tr>
-<td><a href="#signal-node_allocated">node_allocated</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#signal-icon_changed">icon_changed</a>(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</td>
 </tr>
 <tr>
-<td><a href="#signal-node_deallocated">node_deallocated</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#signal-border_changed">border_changed</a>(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</td>
 </tr>
 <tr>
-<td><a href="#signal-refund_mode_entered">refund_mode_entered</a>()</td>
-</tr>
-<tr>
-<td><a href="#signal-refund_mode_exited">refund_mode_exited</a>()</td>
-</tr>
-<tr>
-<td><a href="#signal-node_refund_added">node_refund_added</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
-</tr>
-<tr>
-<td><a href="#signal-node_refund_removed">node_refund_removed</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#signal-attribute_changed">attribute_changed</a>(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>, <span class="param">attribute_id:</span> String, <span class="param">removed:</span> bool)</td>
 </tr>
 </tbody>
 </table>
@@ -2093,39 +2150,59 @@
 </thead>
 <tbody>
 <tr>
-<td class="type">Callable</td>
-<td><a href="#property-preallocation_check">preallocation_check</a></td>
-<td><code>Callable()</code></td>
+<td class="type">String</td>
+<td><a href="#property-reference_id">reference_id</a></td>
+<td><code>""</code></td>
 </tr>
 <tr>
-<td class="type">Callable</td>
-<td><a href="#property-allocation_check">allocation_check</a></td>
-<td><code>Callable()</code></td>
+<td class="type">String</td>
+<td><a href="#property-id">id</a></td>
+<td><code>""</code></td>
 </tr>
 <tr>
-<td class="type">Callable</td>
-<td><a href="#property-deallocation_check">deallocation_check</a></td>
-<td><code>Callable()</code></td>
+<td class="type">String</td>
+<td><a href="#property-node_name">node_name</a></td>
+<td><code>""</code></td>
 </tr>
 <tr>
-<td class="type">Callable</td>
-<td><a href="#property-refund_check">refund_check</a></td>
-<td><code>Callable()</code></td>
+<td class="type">String</td>
+<td><a href="#property-description">description</a></td>
+<td><code>""</code></td>
 </tr>
 <tr>
-<td class="type">Array[int]</td>
-<td><a href="#property-_preallocated_nodes">_preallocated_nodes</a></td>
+<td class="type">NodeType</td>
+<td><a href="#property-type">type</a></td>
+<td></td>
+</tr>
+<tr>
+<td class="type">Texture2D</td>
+<td><a href="#property-icon">icon</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Texture2D</td>
+<td><a href="#property-border_normal">border_normal</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Texture2D</td>
+<td><a href="#property-border_intermediate">border_intermediate</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Texture2D</td>
+<td><a href="#property-border_active">border_active</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Dictionary[String, Array]</td>
+<td><a href="#property-attributes">attributes</a></td>
+<td><code>{}</code></td>
+</tr>
+<tr>
+<td>Array[<a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>]</td>
+<td><a href="#property-nodes">nodes</a></td>
 <td><code>[]</code></td>
-</tr>
-<tr>
-<td class="type">Array[int]</td>
-<td><a href="#property-_refund_nodes">_refund_nodes</a></td>
-<td><code>[]</code></td>
-</tr>
-<tr>
-<td class="type">bool</td>
-<td><a href="#property-_refund_mode">_refund_mode</a></td>
-<td><code>false</code></td>
 </tr>
 </tbody>
 </table>
@@ -2140,140 +2217,160 @@
 <tbody>
 <tr>
 <td class="type">void</td>
-<td><a href="#load_tree">load_tree</a>(<span class="param">tree_data:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>)</td>
+<td><a href="#add_node">add_node</a>(<span class="param">node:</span> <a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#on_node_pressed">on_node_pressed</a>(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
+<td><a href="#remove_node">remove_node</a>(<span class="param">node:</span> <a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#confirm_preallocations">confirm_preallocations</a>()</td>
+<td><a href="#set_node_name">set_node_name</a>(<span class="param">new_name:</span> String)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#clear_preallocations">clear_preallocations</a>()</td>
+<td><a href="#set_description">set_description</a>(<span class="param">new_description:</span> String)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#enter_refund_mode">enter_refund_mode</a>()</td>
+<td><a href="#set_icon">set_icon</a>(<span class="param">new_icon:</span> Texture2D)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#exit_refund_mode">exit_refund_mode</a>()</td>
+<td><a href="#set_border_normal">set_border_normal</a>(<span class="param">new_border:</span> Texture2D)</td>
 </tr>
 <tr>
 <td class="type">void</td>
-<td><a href="#confirm_refund">confirm_refund</a>()</td>
+<td><a href="#set_border_intermediate">set_border_intermediate</a>(<span class="param">new_border:</span> Texture2D)</td>
 </tr>
 <tr>
-<td class="type">bool</td>
-<td><a href="#is_refund_mode">is_refund_mode</a>()</td>
+<td class="type">void</td>
+<td><a href="#set_border_active">set_border_active</a>(<span class="param">new_border:</span> Texture2D)</td>
 </tr>
 <tr>
-<td class="type">Array[int]</td>
-<td><a href="#get_refund_nodes">get_refund_nodes</a>()</td>
+<td class="type">void</td>
+<td><a href="#set_attribute">set_attribute</a>(<span class="param">attribute_id:</span> String, <span class="param">values:</span> Array)</td>
+</tr>
+<tr>
+<td class="type">void</td>
+<td><a href="#remove_attribute">remove_attribute</a>(<span class="param">attribute_id:</span> String)</td>
+</tr>
+<tr>
+<td class="type">void</td>
+<td><a href="#set_attribute_value">set_attribute_value</a>(<span class="param">attribute_id:</span> String, <span class="param">index:</span> int, <span class="param">value:</span> Variant)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="signal-descriptions">Signal Descriptions</h2>
-<h3 id="signal-node_preallocated">node_preallocated(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
+<h3 id="signal-name_changed">name_changed(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</h3>
 <blockquote>
-<p>Emitted when a node is marked as preallocated.</p>
+<p>Emitted when <code>node_name</code> is changed.</p>
 </blockquote>
-<h3 id="signal-node_unpreallocated">node_unpreallocated(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
+<h3 id="signal-description_changed">description_changed(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</h3>
 <blockquote>
-<p>Emitted when a node is removed from the preallocated state.</p>
+<p>Emitted when <code>description</code> is changed.</p>
 </blockquote>
-<h3 id="signal-node_allocated">node_allocated(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
+<h3 id="signal-icon_changed">icon_changed(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</h3>
 <blockquote>
-<p>Emitted when a node becomes allocated.</p>
+<p>Emitted when <code>icon</code> is changed.</p>
 </blockquote>
-<h3 id="signal-node_deallocated">node_deallocated(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
+<h3 id="signal-border_changed">border_changed(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>)</h3>
 <blockquote>
-<p>Emitted when a node becomes deallocated.</p>
+<p>Emitted when a border texture is changed.</p>
 </blockquote>
-<h3 id="signal-refund_mode_entered">refund_mode_entered()</h3>
+<h3 id="signal-attribute_changed">attribute_changed(<span class="param">prefab:</span> <a href="./">YggdrasilPrefab</a>, <span class="param">attribute_id:</span> String, <span class="param">removed:</span> bool)</h3>
 <blockquote>
-<p>Emitted when refund mode is entered.</p>
-</blockquote>
-<h3 id="signal-refund_mode_exited">refund_mode_exited()</h3>
-<blockquote>
-<p>Emitted when refund mode is exited.</p>
-</blockquote>
-<h3 id="signal-node_refund_added">node_refund_added(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
-<blockquote>
-<p>Emitted when a node is staged for refund.</p>
-</blockquote>
-<h3 id="signal-node_refund_removed">node_refund_removed(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
-<blockquote>
-<p>Emitted when a node is removed from the refund list.</p>
+<p>Emitted when an attribute is added, updated, or removed.</p>
 </blockquote>
 <h2 id="property-descriptions">Property Descriptions</h2>
-<h3 id="property-preallocation_check"><span class="type">Callable</span> preallocation_check <span class="param">=</span> <code>Callable()</code></h3>
+<h3 id="property-reference_id"><span class="type">String</span> reference_id <span class="param">=</span> <code>""</code></h3>
 <blockquote>
-<p>Optional callback used to validate whether preallocation is allowed.</p>
+<p>If empty then this is a copy, otherwise it is a prefab that shares data with referenced nodes.</p>
 </blockquote>
-<h3 id="property-allocation_check"><span class="type">Callable</span> allocation_check <span class="param">=</span> <code>Callable()</code></h3>
+<h3 id="property-id"><span class="type">String</span> id <span class="param">=</span> <code>""</code></h3>
 <blockquote>
-<p>Optional callback used to validate whether allocation is allowed.</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="property-deallocation_check"><span class="type">Callable</span> deallocation_check <span class="param">=</span> <code>Callable()</code></h3>
+<h3 id="property-node_name"><span class="type">String</span> node_name <span class="param">=</span> <code>""</code></h3>
 <blockquote>
-<p>Optional callback used to validate whether deallocation is allowed.</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="property-refund_check"><span class="type">Callable</span> refund_check <span class="param">=</span> <code>Callable()</code></h3>
+<h3 id="property-description"><span class="type">String</span> description <span class="param">=</span> <code>""</code></h3>
 <blockquote>
-<p>Optional callback used to validate whether refund staging is allowed.</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="property-_preallocated_nodes"><span class="type">Array[int]</span> _preallocated_nodes <span class="param">=</span> <code>[]</code></h3>
+<h3 id="property-type"><span class="type">NodeType</span> type</h3>
 <blockquote>
-<p>Stores ids of currently preallocated nodes.</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="property-_refund_nodes"><span class="type">Array[int]</span> _refund_nodes <span class="param">=</span> <code>[]</code></h3>
+<h3 id="property-icon"><span class="type">Texture2D</span> icon <span class="param">=</span> <code>null</code></h3>
 <blockquote>
-<p>Stores ids of nodes currently staged for refund.</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="property-_refund_mode"><span class="type">bool</span> _refund_mode <span class="param">=</span> <code>false</code></h3>
+<h3 id="property-border_normal"><span class="type">Texture2D</span> border_normal <span class="param">=</span> <code>null</code></h3>
 <blockquote>
-<p>Tracks whether refund mode is active.</p>
+<p>TODO</p>
+</blockquote>
+<h3 id="property-border_intermediate"><span class="type">Texture2D</span> border_intermediate <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h3 id="property-border_active"><span class="type">Texture2D</span> border_active <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h3 id="property-attributes"><span class="type">Dictionary[String, Array]</span> attributes <span class="param">=</span> <code>{}</code></h3>
+<blockquote>
+<p>Maps attribute ids to arrays of values.</p>
+</blockquote>
+<h3 id="property-nodes"><span class="type">Array[<a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>]</span> nodes <span class="param">=</span> <code>[]</code></h3>
+<blockquote>
+<p>Stores nodes associated with this prefab.</p>
 </blockquote>
 <h2 id="method-descriptions">Method Descriptions</h2>
-<h3 id="load_tree"><span class="type">void</span> load_tree(<span class="param">tree_data:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>)</h3>
+<h3 id="add_node"><span class="type">void</span> add_node(<span class="param">node:</span> <a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
 <blockquote>
-<p>Loads allocation state from <code>tree_data.tree_state.allocated_nodes</code>, marks matching nodes as allocated, updates their state to active, and emits <code>node_allocated</code>.</p>
+<p>Adds <code>node</code> to the prefab node list.</p>
 </blockquote>
-<h3 id="on_node_pressed"><span class="type">void</span> on_node_pressed(<span class="param">node:</span> <a href="../yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
+<h3 id="remove_node"><span class="type">void</span> remove_node(<span class="param">node:</span> <a href="../../shared/yggdrasil-node-button/">YggdrasilNodeButton</a>)</h3>
 <blockquote>
-<p>Handles node press behavior for allocation, preallocation, refund staging, refund unstaging, or deallocation depending on current tree settings and refund mode.</p>
+<p>Removes <code>node</code> from the prefab node list.</p>
 </blockquote>
-<h3 id="confirm_preallocations"><span class="type">void</span> confirm_preallocations()</h3>
+<h3 id="set_node_name"><span class="type">void</span> set_node_name(<span class="param">new_name:</span> String)</h3>
 <blockquote>
-<p>Converts all preallocated nodes into allocated nodes, emits <code>node_allocated</code> for each one, and clears the preallocation list.</p>
+<p>Sets <code>node_name</code>, updates <code>id</code> using <code>new_name.to_snake_case()</code>, and emits <code>name_changed</code>.</p>
 </blockquote>
-<h3 id="clear_preallocations"><span class="type">void</span> clear_preallocations()</h3>
+<h3 id="set_description"><span class="type">void</span> set_description(<span class="param">new_description:</span> String)</h3>
 <blockquote>
-<p>Clears all preallocated nodes, emits <code>node_unpreallocated</code> for each one, and empties the preallocation list.</p>
+<p>Sets <code>description</code> and emits <code>description_changed</code>.</p>
 </blockquote>
-<h3 id="enter_refund_mode"><span class="type">void</span> enter_refund_mode()</h3>
+<h3 id="set_icon"><span class="type">void</span> set_icon(<span class="param">new_icon:</span> Texture2D)</h3>
 <blockquote>
-<p>Enables refund mode, clears staged refund nodes, and emits <code>refund_mode_entered</code>.</p>
+<p>Sets <code>icon</code> and emits <code>icon_changed</code>.</p>
 </blockquote>
-<h3 id="exit_refund_mode"><span class="type">void</span> exit_refund_mode()</h3>
+<h3 id="set_border_normal"><span class="type">void</span> set_border_normal(<span class="param">new_border:</span> Texture2D)</h3>
 <blockquote>
-<p>Clears staged refund nodes, emits <code>node_refund_removed</code> for each one, disables refund mode, and emits <code>refund_mode_exited</code>.</p>
+<p>Sets <code>border_normal</code> and emits <code>border_changed</code>.</p>
 </blockquote>
-<h3 id="confirm_refund"><span class="type">void</span> confirm_refund()</h3>
+<h3 id="set_border_intermediate"><span class="type">void</span> set_border_intermediate(<span class="param">new_border:</span> Texture2D)</h3>
 <blockquote>
-<p>Deallocates all nodes staged for refund, clears the refund list, disables refund mode, and emits <code>refund_mode_exited</code>.</p>
+<p>Sets <code>border_intermediate</code> and emits <code>border_changed</code>.</p>
 </blockquote>
-<h3 id="is_refund_mode"><span class="type">bool</span> is_refund_mode()</h3>
+<h3 id="set_border_active"><span class="type">void</span> set_border_active(<span class="param">new_border:</span> Texture2D)</h3>
 <blockquote>
-<p>Returns whether refund mode is currently active.</p>
+<p>Sets <code>border_active</code> and emits <code>border_changed</code>.</p>
 </blockquote>
-<h3 id="get_refund_nodes"><span class="type">Array[int]</span> get_refund_nodes()</h3>
+<h3 id="set_attribute"><span class="type">void</span> set_attribute(<span class="param">attribute_id:</span> String, <span class="param">values:</span> Array)</h3>
 <blockquote>
-<p>Returns a duplicate of the current refund node id list.</p>
+<p>Sets the value array for <code>attribute_id</code> and emits <code>attribute_changed</code>.</p>
+</blockquote>
+<h3 id="remove_attribute"><span class="type">void</span> remove_attribute(<span class="param">attribute_id:</span> String)</h3>
+<blockquote>
+<p>Removes <code>attribute_id</code> from <code>attributes</code> and emits <code>attribute_changed</code> with <code>removed</code> set to <code>true</code>.</p>
+</blockquote>
+<h3 id="set_attribute_value"><span class="type">void</span> set_attribute_value(<span class="param">attribute_id:</span> String, <span class="param">index:</span> int, <span class="param">value:</span> Variant)</h3>
+<blockquote>
+<p>Updates a value at <code>index</code> in the attribute array for <code>attribute_id</code> and emits <code>attribute_changed</code> if the attribute and index are valid. <code>value</code> must be of type <code>int</code> or <code>float</code>.</p>
 </blockquote>
 
 

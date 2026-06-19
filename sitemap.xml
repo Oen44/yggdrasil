@@ -2,94 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://oen44.github.io/yggdrasil/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/getting-started/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/prefabs/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/runtime/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/serialization/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/shared/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/usage/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-attribute/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-group/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-node/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-prefab/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-registry/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-tree-state/</loc>
+         <lastmod>2026-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://oen44.github.io/yggdrasil/api/resources/yggdrasil-tree/</loc>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/runtime/yggdrasil-serializer/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-allocation-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-base-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-builder/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-camera/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-connection/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-connections-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-decorations-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-line-data/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-loader/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-node-button/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-nodes-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-prefabs-service/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-tooltip/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil-tree-view/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
     <url>
          <loc>https://oen44.github.io/yggdrasil/api/shared/yggdrasil/</loc>
-         <lastmod>2026-06-18</lastmod>
+         <lastmod>2026-06-19</lastmod>
     </url>
 </urlset>
