@@ -870,6 +870,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YggdrasilTreeView
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -886,6 +904,395 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-decoration_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        decoration_created(decoration: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_created(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_allocated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_allocated(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_deallocated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_deallocated(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-prefab_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prefab_created(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-line_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        line_created(line: YggdrasilConnection, from_node_id: int, to_node_id: int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-tree_version_mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tree_version_mismatch(tree: YggdrasilTree, saved_version: int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Property Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Property Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-main_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control main_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-background_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control background_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-decorations_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control decorations_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lines_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control lines_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control nodes_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilCamera camera = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-decorations_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilDecorationsService decorations_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilNodesService nodes_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-connections_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilConnectionsService connections_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-prefabs_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilPrefabsService prefabs_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-allocation_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilAllocationService allocation_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tooltip_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PackedScene _tooltip_scene = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tooltip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilTooltip _tooltip = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tree_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilTree _tree_data = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void load_tree(tree_data: YggdrasilTree, decoration_scene: PackedScene, node_scene: PackedScene, line_scene: PackedScene, tooltip_scene: PackedScene)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_local_space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform2D get_local_space()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate_node_position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 translate_node_position(node: Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate_position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 translate_position(pos: Vector2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_mouse_position_in_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 get_mouse_position_in_tree()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1289,6 +1696,384 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signal Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-decoration_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        decoration_created(decoration: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_created(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_allocated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_allocated(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-node_deallocated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        node_deallocated(node: YggdrasilNode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-prefab_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prefab_created(prefab: YggdrasilPrefab)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-line_created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        line_created(line: YggdrasilConnection, from_node_id: int, to_node_id: int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-tree_version_mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tree_version_mismatch(tree: YggdrasilTree, saved_version: int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Property Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Property Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-main_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control main_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-background_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control background_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-decorations_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control decorations_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-lines_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control lines_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes_container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control nodes_container = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilCamera camera = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-decorations_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilDecorationsService decorations_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-nodes_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilNodesService nodes_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-connections_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilConnectionsService connections_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-prefabs_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilPrefabsService prefabs_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-allocation_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilAllocationService allocation_service = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tooltip_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PackedScene _tooltip_scene = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tooltip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilTooltip _tooltip = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-_tree_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YggdrasilTree _tree_data = null
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method Descriptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        void load_tree(tree_data: YggdrasilTree, decoration_scene: PackedScene, node_scene: PackedScene, line_scene: PackedScene, tooltip_scene: PackedScene)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_local_space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform2D get_local_space()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate_node_position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 translate_node_position(node: Control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate_position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 translate_position(pos: Vector2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_mouse_position_in_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector2 get_mouse_position_in_tree()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1305,8 +2090,259 @@
 
 
 <h1 id="tool-yggdrasiltreeview-api"><code>@tool</code> YggdrasilTreeView API</h1>
+<p>Control for displaying and interacting with a Yggdrasil tree.</p>
 <hr />
-<p><em>Work in progress</em></p>
+<h2 id="signals">Signals</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#signal-decoration_created">decoration_created</a>(<span class="param">decoration:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</td>
+</tr>
+<tr>
+<td><a href="#signal-node_created">node_created</a>(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</td>
+</tr>
+<tr>
+<td><a href="#signal-node_allocated">node_allocated</a>(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</td>
+</tr>
+<tr>
+<td><a href="#signal-node_deallocated">node_deallocated</a>(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</td>
+</tr>
+<tr>
+<td><a href="#signal-prefab_created">prefab_created</a>(<span class="param">prefab:</span> <a href="../../resources/yggdrasil-prefab/">YggdrasilPrefab</a>)</td>
+</tr>
+<tr>
+<td><a href="#signal-line_created">line_created</a>(<span class="param">line:</span> <a href="../yggdrasil-connection/">YggdrasilConnection</a>, <span class="param">from_node_id:</span> int, <span class="param">to_node_id:</span> int)</td>
+</tr>
+<tr>
+<td><a href="#signal-tree_version_mismatch">tree_version_mismatch</a>(<span class="param">tree:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>, <span class="param">saved_version:</span> int)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="type">Control</td>
+<td><a href="#property-main_container">main_container</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Control</td>
+<td><a href="#property-background_container">background_container</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Control</td>
+<td><a href="#property-decorations_container">decorations_container</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Control</td>
+<td><a href="#property-lines_container">lines_container</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">Control</td>
+<td><a href="#property-nodes_container">nodes_container</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-camera/">YggdrasilCamera</a></td>
+<td><a href="#property-camera">camera</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-decorations-service/">YggdrasilDecorationsService</a></td>
+<td><a href="#property-decorations_service">decorations_service</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-nodes-service/">YggdrasilNodesService</a></td>
+<td><a href="#property-nodes_service">nodes_service</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-connections-service/">YggdrasilConnectionsService</a></td>
+<td><a href="#property-connections_service">connections_service</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-prefabs-service/">YggdrasilPrefabsService</a></td>
+<td><a href="#property-prefabs_service">prefabs_service</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-allocation-service/">YggdrasilAllocationService</a></td>
+<td><a href="#property-allocation_service">allocation_service</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td class="type">PackedScene</td>
+<td><a href="#property-_tooltip_scene">_tooltip_scene</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../yggdrasil-tooltip/">YggdrasilTooltip</a></td>
+<td><a href="#property-_tooltip">_tooltip</a></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><a href="../../resources/yggdrasil-tree/">YggdrasilTree</a></td>
+<td><a href="#property-_tree_data">_tree_data</a></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="type">void</td>
+<td><a href="#load_tree">load_tree</a>(<span class="param">tree_data:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>, <span class="param">decoration_scene:</span> PackedScene, <span class="param">node_scene:</span> PackedScene, <span class="param">line_scene:</span> PackedScene, <span class="param">tooltip_scene:</span> PackedScene)</td>
+</tr>
+<tr>
+<td class="type">Transform2D</td>
+<td><a href="#get_local_space">get_local_space</a>()</td>
+</tr>
+<tr>
+<td class="type">Vector2</td>
+<td><a href="#translate_node_position">translate_node_position</a>(<span class="param">node:</span> Control)</td>
+</tr>
+<tr>
+<td class="type">Vector2</td>
+<td><a href="#translate_position">translate_position</a>(<span class="param">pos:</span> Vector2)</td>
+</tr>
+<tr>
+<td class="type">Vector2</td>
+<td><a href="#get_mouse_position_in_tree">get_mouse_position_in_tree</a>()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="signal-descriptions">Signal Descriptions</h2>
+<h3 id="signal-decoration_created">decoration_created(<span class="param">decoration:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</h3>
+<blockquote>
+<p>Emitted when a decoration node is created.</p>
+</blockquote>
+<h3 id="signal-node_created">node_created(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</h3>
+<blockquote>
+<p>Emitted when a node is created.</p>
+</blockquote>
+<h3 id="signal-node_allocated">node_allocated(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</h3>
+<blockquote>
+<p>Emitted when a node is allocated.</p>
+</blockquote>
+<h3 id="signal-node_deallocated">node_deallocated(<span class="param">node:</span> <a href="../../resources/yggdrasil-node/">YggdrasilNode</a>)</h3>
+<blockquote>
+<p>Emitted when a node is deallocated.</p>
+</blockquote>
+<h3 id="signal-prefab_created">prefab_created(<span class="param">prefab:</span> <a href="../../resources/yggdrasil-prefab/">YggdrasilPrefab</a>)</h3>
+<blockquote>
+<p>Emitted when a prefab is created.</p>
+</blockquote>
+<h3 id="signal-line_created">line_created(<span class="param">line:</span> <a href="../yggdrasil-connection/">YggdrasilConnection</a>, <span class="param">from_node_id:</span> int, <span class="param">to_node_id:</span> int)</h3>
+<blockquote>
+<p>Emitted when a connection line is created.</p>
+</blockquote>
+<h3 id="signal-tree_version_mismatch">tree_version_mismatch(<span class="param">tree:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>, <span class="param">saved_version:</span> int)</h3>
+<blockquote>
+<p>Emitted when the loaded tree state version does not match the tree version.</p>
+</blockquote>
+<h2 id="property-descriptions">Property Descriptions</h2>
+<h3 id="property-main_container"><span class="type">Control</span> main_container <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Main container for the whole tree view content.</p>
+</blockquote>
+<h3 id="property-background_container"><span class="type">Control</span> background_container <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Container for background visuals.</p>
+</blockquote>
+<h3 id="property-decorations_container"><span class="type">Control</span> decorations_container <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Container for decoration nodes.</p>
+</blockquote>
+<h3 id="property-lines_container"><span class="type">Control</span> lines_container <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Container for connection lines.</p>
+</blockquote>
+<h3 id="property-nodes_container"><span class="type">Control</span> nodes_container <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Container for regular nodes.</p>
+</blockquote>
+<h3 id="property-camera"><span class="type">YggdrasilCamera</span> camera <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Camera used to navigate the tree view.</p>
+</blockquote>
+<h3 id="property-decorations_service"><span class="type">YggdrasilDecorationsService</span> decorations_service <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Service responsible for loading and creating decorations.</p>
+</blockquote>
+<h3 id="property-nodes_service"><span class="type">YggdrasilNodesService</span> nodes_service <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Service responsible for loading and creating nodes.</p>
+</blockquote>
+<h3 id="property-connections_service"><span class="type">YggdrasilConnectionsService</span> connections_service <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Service responsible for loading and updating connections.</p>
+</blockquote>
+<h3 id="property-prefabs_service"><span class="type">YggdrasilPrefabsService</span> prefabs_service <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Service responsible for loading and creating prefabs.</p>
+</blockquote>
+<h3 id="property-allocation_service"><span class="type">YggdrasilAllocationService</span> allocation_service <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Service responsible for allocation and refund behavior.</p>
+</blockquote>
+<h3 id="property-_tooltip_scene"><span class="type">PackedScene</span> _tooltip_scene <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Scene used to instantiate the tooltip.</p>
+</blockquote>
+<h3 id="property-_tooltip"><span class="type">YggdrasilTooltip</span> _tooltip <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Tooltip instance used to inspect hovered nodes.</p>
+</blockquote>
+<h3 id="property-_tree_data"><span class="type">YggdrasilTree</span> _tree_data <span class="param">=</span> <code>null</code></h3>
+<blockquote>
+<p>Loaded tree data used by this view.</p>
+</blockquote>
+<h2 id="method-descriptions">Method Descriptions</h2>
+<h3 id="load_tree"><span class="type">void</span> load_tree(<span class="param">tree_data:</span> <a href="../../resources/yggdrasil-tree/">YggdrasilTree</a>, <span class="param">decoration_scene:</span> PackedScene, <span class="param">node_scene:</span> PackedScene, <span class="param">line_scene:</span> PackedScene, <span class="param">tooltip_scene:</span> PackedScene)</h3>
+<blockquote>
+<p>Loads <code>tree_data</code>, stores <code>tooltip_scene</code>, creates internal containers, background, camera, and services, and emits <code>tree_version_mismatch</code> if the saved tree state version differs from the tree version.</p>
+</blockquote>
+<h3 id="get_local_space"><span class="type">Transform2D</span> get_local_space()</h3>
+<blockquote>
+<p>Returns the transform that converts from this control space to the tree local space.</p>
+</blockquote>
+<h3 id="translate_node_position"><span class="type">Vector2</span> translate_node_position(<span class="param">node:</span> Control)</h3>
+<blockquote>
+<p>Converts a node control position into tree-space coordinates centered on the tree.</p>
+</blockquote>
+<h3 id="translate_position"><span class="type">Vector2</span> translate_position(<span class="param">pos:</span> Vector2)</h3>
+<blockquote>
+<p>Converts a position into tree-space coordinates centered on the tree.</p>
+</blockquote>
+<h3 id="get_mouse_position_in_tree"><span class="type">Vector2</span> get_mouse_position_in_tree()</h3>
+<blockquote>
+<p>Returns the current mouse position in tree-space coordinates.</p>
+</blockquote>
 
 
 
