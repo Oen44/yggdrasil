@@ -41,10 +41,10 @@ Button control that displays and manages an interactive [YggdrasilNode](../resou
 
 ## Methods
 
-| Type           | Name                                                                                                                          |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| String {.type} | [format_tooltip](#format_tooltip)()                                                                                           |
-| void {.type}   | [set_state](#set_state)(<span class="param">new_state:</span> [AllocationState](../shared/yggdrasil.md#enum-allocationstate)) |
+| Type           | Name                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| String {.type} | [format_tooltip](#format_tooltip)()                                                                                            |
+| void {.type}   | [set_state](#set_state)(<span class="param">new_state:</span> [AllocationState](../shared/yggdrasil.md#enum-allocation-state)) |
 
 ## Signal Descriptions
 
@@ -77,7 +77,7 @@ Button control that displays and manages an interactive [YggdrasilNode](../resou
 ### <span class="type">bool</span> allocated <span class="param">=</span> `false` { #property-allocated }
 > Whether the node is currently allocated.
 
-### [AllocationState](../shared/yggdrasil.md#enum-allocationstate) state <span class="param">=</span> `NORMAL` { #property-state }
+### [AllocationState](../shared/yggdrasil.md#enum-allocation-state) state <span class="param">=</span> `NORMAL` { #property-state }
 > Current allocation display state of the node.
 
 ### <span class="type">bool</span> is_root { #property-is_root }
@@ -130,5 +130,5 @@ Button control that displays and manages an interactive [YggdrasilNode](../resou
 ### <span class="type">String</span> format_tooltip() { #format_tooltip }
 > Builds and returns formatted rich text tooltip content using the node name, attributes, and description.
 
-### <span class="type">void</span> set_state(<span class="param">new_state:</span> [AllocationState](../shared/yggdrasil.md#enum-allocationstate)) { #set_state }
+### <span class="type">void</span> set_state(<span class="param">new_state:</span> [AllocationState](../shared/yggdrasil.md#enum-allocation-state)) { #set_state }
 > Updates the node allocation state, border appearance, and visibility according to `new_state`.
