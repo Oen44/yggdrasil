@@ -451,7 +451,7 @@ func _get_center_position(node: Control) -> Vector2:
 
 func _on_new_node_requested(node_type: YggdrasilNode.NodeType):
 	if node_type == YggdrasilNode.NodeType.DECORATION:
-		_tree_view.decorations_service.create_decoration(_snap_to_grid(_last_click_pos), null)
+		_tree_view.decorations_service.create_decoration(_snap_to_grid(_last_click_pos))
 	else:
 		_tree_view.nodes_service.create_node(_snap_to_grid(_last_click_pos), node_type)
 	_mark_dirty()
