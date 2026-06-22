@@ -521,6 +521,7 @@ func _on_attribute_button_clicked(item: TreeItem, column: int, id: int, mouse_bu
 	else:
 		_selected_node.attributes.erase(attr_id)
 		editor.node_attribute_changed.emit(_selected_node, attr_id, true)
+	changed.emit()
 
 func _on_attribute_edited():
 	var edited = attributes_tree.get_edited()
