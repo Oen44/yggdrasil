@@ -6,7 +6,8 @@ extends Node
 const Yggdrasil = preload("res://addons/yggdrasil/scripts/shared/yggdrasil.gd")
 
 var _registry: YggdrasilRegistry
-var _path_to_tree: Dictionary[String, String]
+var _path_to_resource_path: Dictionary[String, String]
+var _path_to_tree: Dictionary[String, YggdrasilTree]
 
 func _init():
 	_load_registry()
@@ -20,19 +21,27 @@ func get_registry() -> YggdrasilRegistry:
 # Returns tree by path (group_name/tree_name, e.g. "my group/my tree", case insensitive)
 func load_tree(path: String) -> YggdrasilTree:
 	path = path.to_lower()
-	if not _path_to_tree.has(path):
-		push_error("Yggdrasil: Tree path '%s' not found in registry" % path)
-		return null
+	
+	var tree: YggdrasilTree = null
+	if Engine.is_editor_hint():
+		if not _path_to_resource_path.has(path):
+			push_error("Yggdrasil: Tree path '%s' not found in registry" % path)
+			return null
+		var tree_path = _path_to_resource_path[path]
+		tree = ResourceLoader.load(tree_path, "YggdrasilTree", ResourceLoader.CACHE_MODE_IGNORE)
+	else:
+		if not _path_to_tree.has(path):
+			push_error("Yggdrasil: Tree path '%s' not found in registry" % path)
+			return null
+		tree = _path_to_tree[path]
 
-	var tree_path = _path_to_tree[path]
-	var tree: YggdrasilTree = ResourceLoader.load(tree_path, "YggdrasilTree", ResourceLoader.CACHE_MODE_IGNORE)
 	if tree == null:
-		push_error("Yggdrasil: Failed to load tree at path '%s'" % tree_path)
-
+		push_error("Yggdrasil: Failed to load tree at path '%s'" % path)
+	
 	return tree
 
 func add_tree_to_registry(group: YggdrasilGroup, tree: YggdrasilTree) -> void:
-	_path_to_tree["%s/%s" % [group.name.to_lower(), tree.name.to_lower()]] = tree.resource_path
+	_path_to_resource_path["%s/%s" % [group.name.to_lower(), tree.name.to_lower()]] = tree.resource_path
 
 # Private
 
@@ -51,7 +60,11 @@ func _create_registry():
 	ResourceSaver.save(_registry, Yggdrasil.get_registry_path())
 
 func _cache_paths_to_trees():
+	_path_to_resource_path = {}
 	_path_to_tree = {}
 	for group: YggdrasilGroup in _registry.groups:
 		for tree: YggdrasilTree in group.trees:
-			_path_to_tree["%s/%s" % [group.name.to_lower(), tree.name.to_lower()]] = tree.resource_path
+			if Engine.is_editor_hint():
+				_path_to_resource_path["%s/%s" % [group.name.to_lower(), tree.name.to_lower()]] = tree.resource_path
+			else:
+				_path_to_tree["%s/%s" % [group.name.to_lower(), tree.name.to_lower()]] = tree
