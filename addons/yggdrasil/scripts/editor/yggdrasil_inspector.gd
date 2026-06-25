@@ -571,6 +571,7 @@ func _on_attribute_edited():
 			_selected_node.prefab.set_attribute_value(attribute_id, index, value, level_index)
 		else:
 			_selected_node.attributes[attribute_id][level_index][index] = value
+			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
 	else:
 		var attribute_id = edited.get_parent().get_metadata(0)
 		if _selected_node.prefab:
@@ -578,9 +579,6 @@ func _on_attribute_edited():
 		else:
 			_selected_node.attributes[attribute_id][index] = value
 			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
-	
-	edited.set_cell_mode(0, TreeItem.CELL_MODE_STRING)
-	edited.set_text(0, "Value %d: %s" % [edited.get_index() + 1, str(value)])
 	
 	changed.emit()
 

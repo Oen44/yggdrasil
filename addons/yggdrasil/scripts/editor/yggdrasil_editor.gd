@@ -651,3 +651,4 @@ func _on_multiallocation_changed():
 		for prefab in tree.prefabs[node_type]:
 			prefab.attributes.clear()
 	inspector.update_multiallocation(tree.multiallocation)
+	attributes_editor.clear_selected_attributes()

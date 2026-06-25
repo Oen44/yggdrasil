@@ -338,3 +338,7 @@ func _on_edit_canceled(item: TreeItem):
 	if _current_node:
 		item.set_cell_mode(0, TreeItem.CELL_MODE_CHECK)
 	item.set_text(0, metadata.id)
+
+func clear_selected_attributes():
+	for child in tree.get_root().get_children():
+		child.set_checked(0, false)
