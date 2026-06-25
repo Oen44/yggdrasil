@@ -164,7 +164,7 @@ func _on_item_edited():
 				edited.set_cell_mode(0, TreeItem.CELL_MODE_STRING)
 				edited.set_text(0, "Value Count: %d" % attribute.value_count)
 				editor.node_attribute_changed.emit(_current_node, attribute.id, false)
-		editor.set_dirty(true)
+		changed.emit()
 		return
 
 	if metadata is Dictionary and metadata.has("new_attr"):
@@ -209,9 +209,14 @@ func _on_item_edited():
 				values.append(0)
 			
 			if _current_node.prefab:
-				_current_node.prefab.set_attribute(metadata.id, values)
+				_current_node.prefab.set_attribute(metadata.id, values, editor.tree.multiallocation)
 			else:
-				_current_node.attributes[metadata.id] = values
+				if editor.tree.multiallocation:
+					_current_node.attributes[metadata.id] = []
+					for level in range(_current_node.max_allocations):
+						_current_node.attributes[metadata.id].append(values.duplicate())
+				else:
+					_current_node.attributes[metadata.id] = values
 				editor.node_attribute_changed.emit(_current_node, metadata.id, false)
 		else:
 			if _current_node.prefab:
@@ -265,7 +270,7 @@ func _on_item_edited():
 			edited.set_checked(0, _current_node.attributes.has(new_id))
 		edited.set_text(0, metadata.id)
 
-	editor.set_dirty(true)
+	changed.emit()
 
 func _on_item_activated():
 	var selected = tree.get_selected()

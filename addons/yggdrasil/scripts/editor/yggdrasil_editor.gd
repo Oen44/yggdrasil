@@ -642,4 +642,12 @@ func _on_preallocation_changed():
 	pass
 
 func _on_multiallocation_changed():
+	# Go through nodes and prefabs and clear attributes dictionaries
+	for node_data in tree.nodes:
+		node_data.attributes.clear()
+	for node_type in tree.prefabs.keys():
+		if node_type == YggdrasilNode.NodeType.DECORATION:
+			continue
+		for prefab in tree.prefabs[node_type]:
+			prefab.attributes.clear()
 	inspector.update_multiallocation(tree.multiallocation)

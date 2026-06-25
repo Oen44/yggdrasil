@@ -72,7 +72,7 @@ func _get_plugin_name():
 	return "Yggdrasil"
 
 func _get_plugin_icon():
-	return EditorInterface.get_editor_theme().get_icon("Node", "EditorIcons")
+	return EditorInterface.get_editor_theme().get_icon("Node", Yggdrasil.ICON_THEME)
 
 func _on_tree_dirty_changed(editor: YggdrasilEditor, dirty: bool):
 	if dirty:

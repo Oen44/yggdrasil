@@ -156,17 +156,40 @@ func format_tooltip():
 			push_error("Attribute (id=%s) effect string has mismatched number (found=%d, expected=%d) of placeholders (char=#) for attribute values." % [attribute.id, matches.size(), attribute.value_count])
 			continue
 		
-		var tooltip = attribute.effect
-		for i in attribute.value_count:
-			var value = attributes[attr_id][i]
-			tooltip = regex.sub(tooltip, str(value))
-		str += "[color=#8a8aff]%s[/color]\n" % tooltip
+		str += "[color=#8a8aff]%s[/color]\n" % format_attribute_effect(regex, attribute, attr_id)
 
 	if not description.is_empty():
 		str += "\n[color=orange]%s[/color]" % description
 
 	str = str.strip_edges()
 	return str
+
+func format_attribute_effect(regex: RegEx, attribute: YggdrasilAttribute, attr_id: String) -> String:
+	var formatted = ""
+	if tree.multiallocation:
+		if allocation_level > 0:
+			formatted = attribute.effect
+			var values = attributes[attr_id][max(0, allocation_level - 1)]
+			for i in attribute.value_count:
+				var value = values[i]
+				formatted = regex.sub(formatted, str(value))
+		if allocation_level < max_allocations:
+			formatted += "\n[color=orange]Next Level: %s[/color]" % _format_attribute_level(regex, attribute, attr_id, allocation_level)
+			formatted = formatted.strip_edges()
+	else:
+		formatted = attribute.effect
+		for i in attribute.value_count:
+			var value = attributes[attr_id][i]
+			formatted = regex.sub(formatted, str(value))
+	return formatted
+
+func _format_attribute_level(regex: RegEx, attribute: YggdrasilAttribute, attr_id: String, level: int) -> String:
+	var formatted = attribute.effect
+	var values = attributes[attr_id][min(max_allocations, level)]
+	for i in attribute.value_count:
+		var value = values[i]
+		formatted = regex.sub(formatted, str(value))
+	return formatted
 
 func set_state(new_state: Yggdrasil.AllocationState):
 	state = new_state

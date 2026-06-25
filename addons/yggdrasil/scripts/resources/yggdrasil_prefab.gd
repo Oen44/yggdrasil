@@ -57,8 +57,13 @@ func set_border_active(new_border: Texture2D) -> void:
 	border_active = new_border
 	border_changed.emit(self)
 
-func set_attribute(attribute_id: String, values: Array) -> void:
-	attributes[attribute_id] = values
+func set_attribute(attribute_id: String, values: Array, multiallocation: bool = false) -> void:
+	if multiallocation:
+		attributes[attribute_id] = []
+		for level in range(max_allocations):
+			attributes[attribute_id].append(values.duplicate())
+	else:
+		attributes[attribute_id] = values
 	attribute_changed.emit(self, attribute_id, false)
 
 func remove_attribute(attribute_id: String) -> void:
@@ -66,7 +71,7 @@ func remove_attribute(attribute_id: String) -> void:
 	attribute_changed.emit(self, attribute_id, true)
 
 # Value must be int or float
-func set_attribute_value(attribute_id: String, index: int, value: Variant) -> void:
+func set_attribute_value(attribute_id: String, index: int, value: Variant, level: int = -1) -> void:
 	if typeof(value) != TYPE_INT and typeof(value) != TYPE_FLOAT:
 		push_error("Value is of type %s, expected int or float (attribute_id=%s)" % [type_string(typeof(value)), attribute_id])
 		return
@@ -74,11 +79,18 @@ func set_attribute_value(attribute_id: String, index: int, value: Variant) -> vo
 	if not attributes.has(attribute_id):
 		return
 	
-	var values = attributes[attribute_id]
-	if index < 0 or index >= values.size():
-		return
-	
-	values[index] = value
+	if level != -1:
+		var values = attributes[attribute_id][level]
+		if index < 0 or index >= values.size():
+			return
+		
+		values[index] = value
+	else:
+		var values = attributes[attribute_id]
+		if index < 0 or index >= values.size():
+			return
+		
+		values[index] = value
 	attribute_changed.emit(self, attribute_id, false)
 
 func set_max_allocations(new_max: int) -> void:
