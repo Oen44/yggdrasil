@@ -135,6 +135,9 @@ func _create_services(decoration_scene: PackedScene, node_scene: PackedScene, li
 	allocation_service.node_deallocated.connect(connections_service.on_node_allocation_changed)
 	allocation_service.node_refund_added.connect(connections_service.on_node_allocation_changed)
 	allocation_service.node_refund_removed.connect(connections_service.on_node_allocation_changed)
+	
+	allocation_service.node_allocated.connect(_on_node_allocated)
+	allocation_service.node_deallocated.connect(_on_node_deallocated)
 
 	allocation_service.load_tree(_tree_data)
 	if _tree_data.allocation and not Engine.is_editor_hint():
@@ -160,6 +163,12 @@ func _on_node_hovered(node: YggdrasilNodeButton, is_hovered: bool):
 		if _tooltip:
 			_tooltip.hide()
 			_tooltip.reset()
+
+func _on_node_allocated(node: YggdrasilNodeButton):
+	node_allocated.emit(node)
+
+func _on_node_deallocated(node: YggdrasilNodeButton):
+	node_deallocated.emit(node)
 
 func get_local_space() -> Transform2D:
 	return main_container.get_global_transform().affine_inverse() * get_global_transform()
