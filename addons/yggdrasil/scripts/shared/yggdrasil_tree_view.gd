@@ -165,9 +165,17 @@ func _on_node_hovered(node: YggdrasilNodeButton, is_hovered: bool):
 			_tooltip.reset()
 
 func _on_node_allocated(node: YggdrasilNodeButton):
+	if _tooltip and _tooltip.visible:
+		_tooltip.reset_size()
+		_tooltip.inspect(node)
+
 	node_allocated.emit(node)
 
 func _on_node_deallocated(node: YggdrasilNodeButton):
+	if _tooltip and _tooltip.visible:
+		_tooltip.reset_size()
+		_tooltip.inspect(node)
+	
 	node_deallocated.emit(node)
 
 func get_local_space() -> Transform2D:
