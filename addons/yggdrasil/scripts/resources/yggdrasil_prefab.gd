@@ -7,7 +7,7 @@ signal description_changed(prefab: YggdrasilPrefab)
 signal icon_changed(prefab: YggdrasilPrefab)
 signal border_changed(prefab: YggdrasilPrefab)
 signal attribute_changed(prefab: YggdrasilPrefab, attribute_id: String, removed: bool)
-signal max_allocation_changed(prefab: YggdrasilPrefab)
+signal max_allocations_changed(prefab: YggdrasilPrefab)
 
 @export_storage var reference_id: String # If empty then this is a copy, otherwise it's a prefab that shares data with referenced nodes
 @export_storage var id: String
@@ -19,7 +19,7 @@ signal max_allocation_changed(prefab: YggdrasilPrefab)
 @export_storage var border_intermediate: Texture2D
 @export_storage var border_active: Texture2D
 @export_storage var attributes # : Dictionary[String, Array] "id" => [value1, value2, ...]
-@export_storage var max_allocation: int
+@export_storage var max_allocations: int
 
 var nodes: Array[YggdrasilNodeButton] = []
 
@@ -81,6 +81,6 @@ func set_attribute_value(attribute_id: String, index: int, value: Variant) -> vo
 	values[index] = value
 	attribute_changed.emit(self, attribute_id, false)
 
-func set_max_allocation(new_max: int) -> void:
-	max_allocation = new_max
-	max_allocation_changed.emit(self)
+func set_max_allocations(new_max: int) -> void:
+	max_allocations = new_max
+	max_allocations_changed.emit(self)

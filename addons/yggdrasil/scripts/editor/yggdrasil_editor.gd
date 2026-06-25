@@ -552,6 +552,7 @@ func _connect_prefab_signals(prefab: YggdrasilPrefab):
 	prefab.icon_changed.connect(_on_prefab_icon_changed)
 	prefab.border_changed.connect(_on_prefab_border_changed)
 	prefab.attribute_changed.connect(_on_prefab_attribute_changed)
+	prefab.max_allocations_changed.connect(_on_prefab_max_allocation_changed)
 
 func _on_prefab_name_changed(prefab: YggdrasilPrefab):
 	for node in prefab.nodes:
@@ -592,6 +593,10 @@ func _on_prefab_attribute_changed(prefab: YggdrasilPrefab, attribute_id: String,
 			node.attributes[attribute_id] = prefab.attributes[attribute_id]
 		
 		node_attribute_changed.emit(node, attribute_id, removed)
+
+func _on_prefab_max_allocation_changed(prefab: YggdrasilPrefab):
+	for node in prefab.nodes:
+		node.max_allocations = prefab.max_allocations
 
 func _on_background_changed():
 	var color_rect = _tree_view.background_container.get_node("BackgroundColor")
@@ -637,4 +642,4 @@ func _on_preallocation_changed():
 	pass
 
 func _on_multiallocation_changed():
-	pass
+	inspector.update_multiallocation(tree.multiallocation)

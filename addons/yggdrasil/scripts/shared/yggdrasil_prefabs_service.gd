@@ -35,6 +35,7 @@ func create_prefab(node: YggdrasilNodeButton, is_copy: bool = false):
 	prefab.icon = node.icon
 	prefab.border_normal = node.border_normal
 	prefab.attributes = node.attributes.duplicate(true)
+	prefab.max_allocations = node.max_allocations
 
 	if not is_copy:
 		prefab.reference_id = Yggdrasil.UUIDGenerator.v4()

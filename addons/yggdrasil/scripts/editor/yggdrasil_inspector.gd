@@ -126,13 +126,14 @@ func _on_node_selected(node: YggdrasilNodeButton):
 		name_input.text = node.node_data.name
 		description_input.text = node.node_data.description
 		root_check.button_pressed = node.is_root
-		max_allocation_input.set_value_no_signal(node.max_allocation)
+		max_allocation_input.set_value_no_signal(node.max_allocations)
 		info_panel.show()
 		border_normal_input.show()
 		border_intermediate_input.show()
 		border_active_input.show()
 		root_panel.show()
-		max_allocation_input.get_parent().show()
+		if node.tree.multiallocation:
+			max_allocation_input.get_parent().show()
 	
 	transform_panel.show()
 
@@ -263,9 +264,9 @@ func _on_max_allocation_changed(value: float):
 		return
 	
 	if _selected_node.prefab:
-		_selected_node.prefab.set_max_allocation(int(value))
+		_selected_node.prefab.set_max_allocations(int(value))
 	else:
-		_selected_node.max_allocation = int(value)
+		_selected_node.max_allocations = int(value)
 	changed.emit()
 
 func _on_icon_selected(node_type: int, texture: Texture2D, region: Vector2):
@@ -671,3 +672,9 @@ func update_node_texture(node_type: YggdrasilNode.NodeType, texture: Texture2D, 
 		atlas.atlas = texture
 		atlas.region = Rect2(region, editor.tree.icon_sizes[node_type])
 		update_node_icon(selected, atlas)
+
+func update_multiallocation(multiallocation: bool):
+	if not _selected_node:
+		return
+	
+	max_allocation_input.get_parent().visible = multiallocation

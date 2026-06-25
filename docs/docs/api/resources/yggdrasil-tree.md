@@ -14,6 +14,7 @@ Resource that stores tree data, visual configuration, node collections, prefab m
 | bool {.type}                                         | [revealed](#property-revealed)                                   | `true`                 |
 | bool {.type}                                         | [allocation](#property-allocation)                               | `true`                 |
 | bool {.type}                                         | [preallocation](#property-preallocation)                         | `true`                 |
+| bool {.type}                                         | [multiallocation](#property-multiallocation)                     | `true`                 |
 | Vector2 {.type}                                      | [size](#property-size)                                           | `Vector2(5000, 5000)`  |
 | Color {.type}                                        | [bg_color](#property-bg_color)                                   | `Color(0.1, 0.1, 0.1)` |
 | Texture2D {.type}                                    | [bg_texture](#property-bg_texture)                               | `null`                 |
@@ -55,6 +56,9 @@ Resource that stores tree data, visual configuration, node collections, prefab m
 > TODO
 
 ### <span class="type">bool</span> preallocation <span class="param">=</span> `true` { #property-preallocation }
+> TODO
+
+### <span class="type">bool</span> multiallocation <span class="param">=</span> `true` { #property-multiallocation }
 > TODO
 
 ### <span class="type">Vector2</span> size <span class="param">=</span> `Vector2(5000, 5000)` { #property-size }

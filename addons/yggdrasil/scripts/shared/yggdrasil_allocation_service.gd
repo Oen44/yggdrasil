@@ -26,6 +26,8 @@ var _refund_mode: bool = false
 
 var _allocated_nodes:
 		get: return _tree_data.tree_state.allocated_nodes
+var _allocation_level:
+		get: return _tree_data.tree_state.allocation_level
 
 func load_tree(tree_data: YggdrasilTree) -> void:
 	_tree_data = tree_data
@@ -34,6 +36,7 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 		var node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(node_id)
 		node.allocated = true
 		node.set_state(Yggdrasil.AllocationState.ACTIVE)
+		node.allocation_level = _allocation_level[node_id]
 		node_allocated.emit(node)
 
 func on_node_pressed(node: YggdrasilNodeButton) -> void:
@@ -57,7 +60,7 @@ func on_node_pressed(node: YggdrasilNodeButton) -> void:
 				_preallocated_nodes.append(node.id)
 				node.preallocated = true
 				node_preallocated.emit(node)
-			elif _is_valid_deallocation(node, _get_remaining_nodes(node.id, true)):
+			elif _is_valid_deallocation(node, _get_remaining_post_unpreallocation(node.id)):
 				_preallocated_nodes.erase(node.id)
 				node.preallocated = false
 				node_unpreallocated.emit(node)
@@ -66,21 +69,14 @@ func on_node_pressed(node: YggdrasilNodeButton) -> void:
 				confirm_preallocations()
 	else:
 		if _can_allocate(node):
-			_allocated_nodes.append(node.id)
-			node.allocated = true
-			node_allocated.emit(node)
+			_allocate_node(node)
 		elif _is_valid_deallocation(node, _get_remaining_nodes(node.id)):
-			_allocated_nodes.erase(node.id)
-			node.allocated = false
-			node_deallocated.emit(node)
+			_deallocate_node(node)
 
 func confirm_preallocations() -> void:
 	for node_id in _preallocated_nodes:
 		var node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(node_id)
-		node.preallocated = false
-		node.allocated = true
-		_allocated_nodes.append(node.id)
-		node_allocated.emit(node)
+		_allocate_node(node)
 
 	_preallocated_nodes.clear()
 
@@ -93,6 +89,11 @@ func clear_preallocations() -> void:
 	_preallocated_nodes.clear()
 
 func enter_refund_mode() -> void:
+	if _refund_mode:
+		exit_refund_mode()
+		return
+	
+	clear_preallocations()
 	_refund_mode = true
 	_refund_nodes.clear()
 	refund_mode_entered.emit()
@@ -110,10 +111,7 @@ func exit_refund_mode() -> void:
 func confirm_refund() -> void:
 	for node_id in _refund_nodes:
 		var node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(node_id)
-		_allocated_nodes.erase(node.id)
-		node.allocated = false
-		node.refund = false
-		node_deallocated.emit(node)
+		_deallocate_node(node)
 
 	_refund_nodes.clear()
 	_refund_mode = false
@@ -129,8 +127,16 @@ func _can_preallocate(node: YggdrasilNodeButton) -> bool:
 	if preallocation_check and not preallocation_check.call():
 		return false
 
-	if node.allocated or node.preallocated:
-		return false
+	if _tree_data.multiallocation:
+		if node.preallocated:
+			return false
+		
+		if node.allocated:
+			if _allocation_level[node.id] >= node.max_allocations:
+				return false
+	else:
+		if node.allocated or node.preallocated:
+			return false
 
 	if node.is_root:
 		return true
@@ -173,6 +179,9 @@ func _can_stage_for_refund(node: YggdrasilNodeButton) -> bool:
 
 	if not node.allocated or _refund_nodes.has(node.id):
 		return false
+	
+	if _tree_data.multiallocation:
+		return _is_valid_deallocation(node, _get_remaining_post_deallocation(node.id))
 
 	var remaining: Array[int] = _allocated_nodes.filter(
 		func(id): return id != node.id and not _refund_nodes.has(id)
@@ -195,12 +204,12 @@ func _is_valid_deallocation(node: YggdrasilNodeButton, remaining: Array[int]) ->
 		return false
 
 	if _refund_mode:
-		if not node.allocated and not node.preallocated:
+		if not node.allocated:
 			return false
 	else:
-		if node.allocated or not node.preallocated:
+		if not node.preallocated:
 			return false
-
+	
 	if remaining.is_empty():
 		return true
 
@@ -238,11 +247,87 @@ func _is_valid_deallocation(node: YggdrasilNodeButton, remaining: Array[int]) ->
 
 	return true
 
+func _get_remaining_post_deallocation(target_node_id: int, include_prealloc: bool = false) -> Array[int]:
+	var remaining: Array[int] = []
+
+	var resulting_levels: Dictionary[int, int] = {}
+	for node_id in _allocated_nodes:
+		resulting_levels[node_id] = _allocation_level.get(node_id, 1)
+
+	if _refund_mode:
+		for refund_node_id in _refund_nodes:
+			if resulting_levels.has(refund_node_id):
+				resulting_levels[refund_node_id] -= 1
+				if resulting_levels[refund_node_id] <= 0:
+					resulting_levels.erase(refund_node_id)
+
+	if resulting_levels.has(target_node_id):
+		resulting_levels[target_node_id] -= 1
+		if resulting_levels[target_node_id] <= 0:
+			resulting_levels.erase(target_node_id)
+
+	remaining.append_array(resulting_levels.keys())
+
+	if include_prealloc:
+		for node_id in _preallocated_nodes:
+			if node_id != target_node_id and not remaining.has(node_id):
+				remaining.append(node_id)
+
+	return remaining
+
 func _get_active_nodes() -> Array[int]:
 	return _allocated_nodes + _preallocated_nodes
 
 func _get_remaining_nodes(excluded_id: int, include_prealloc: bool = false) -> Array[int]:
+	if _tree_data.multiallocation:
+		return _get_remaining_post_deallocation(excluded_id, include_prealloc)
+
 	var base = _allocated_nodes
 	if include_prealloc:
 		base += _preallocated_nodes
 	return base.filter(func(id): return id != excluded_id)
+
+func _get_remaining_post_unpreallocation(target_node_id: int) -> Array[int]:
+	var remaining = _allocated_nodes.duplicate()
+
+	for node_id in _preallocated_nodes:
+		if node_id == target_node_id:
+			continue
+
+		if not remaining.has(node_id):
+			remaining.append(node_id)
+
+	return remaining
+
+func _allocate_node(node: YggdrasilNodeButton) -> void:
+	if _tree_data.multiallocation:
+		if node.allocation_level < node.max_allocations:
+			if _allocation_level.has(node.id):
+				_allocation_level[node.id] += 1
+			else:
+				_allocation_level[node.id] = 1
+				_allocated_nodes.append(node.id)
+				node.allocated = true
+		node.allocation_level = _allocation_level[node.id]
+	else:
+		_allocated_nodes.append(node.id)
+		node.allocated = true
+	
+	node.preallocated = false
+	node_allocated.emit(node)
+
+func _deallocate_node(node: YggdrasilNodeButton) -> void:
+	if _tree_data.multiallocation:
+		if _allocation_level.has(node.id):
+			_allocation_level[node.id] -= 1
+			node.allocation_level = _allocation_level[node.id]
+			if _allocation_level[node.id] <= 0:
+				_allocation_level.erase(node.id)
+				_allocated_nodes.erase(node.id)
+				node.allocated = false
+	else:
+		_allocated_nodes.erase(node.id)
+		node.allocated = false
+	
+	node.refund = false
+	node_deallocated.emit(node)

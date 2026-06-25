@@ -15,6 +15,7 @@ var is_mouse_over: bool = false
 var preallocated: bool = false
 var refund: bool = false
 var allocated: bool = false
+var allocation_level: int = 0
 var state: Yggdrasil.AllocationState = Yggdrasil.AllocationState.NORMAL
 
 var is_root: bool:
@@ -107,11 +108,11 @@ var locked: bool:
 	set(value):
 		node_data.locked = value
 
-var max_allocation: int:
+var max_allocations: int:
 	get:
-		return node_data.max_allocation
+		return node_data.max_allocations
 	set(value):
-		node_data.max_allocation = value
+		node_data.max_allocations = value
 
 func _ready():
 	button_mask = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT
@@ -141,7 +142,13 @@ func format_tooltip():
 	var regex = RegEx.new()
 	regex.compile('#')
 
-	var str = "[b][color=#f9e6ca]%s[/color][/b]\n\n" % node_name
+	var str = ""
+
+	if tree.multiallocation:
+		str = "[b][color=#f9e6ca]%s[/color][/b] (%d/%d)\n\n" % [node_name, allocation_level, max_allocations]
+	else:
+		str = "[b][color=#f9e6ca]%s[/color][/b]\n\n" % node_name
+
 	for attr_id in attributes.keys():
 		var attribute: YggdrasilAttribute = tree.attributes[attr_id]
 		var matches = regex.search_all(attribute.effect)
