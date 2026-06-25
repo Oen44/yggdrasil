@@ -107,6 +107,12 @@ var locked: bool:
 	set(value):
 		node_data.locked = value
 
+var max_allocation: int:
+	get:
+		return node_data.max_allocation
+	set(value):
+		node_data.max_allocation = value
+
 func _ready():
 	button_mask = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT
 	mouse_filter = MOUSE_FILTER_PASS

@@ -1,10 +1,12 @@
 @tool
 class_name YggdrasilTreeState
-extends Resource
+extends RefCounted
 
-@export_storage var version: int
-@export_storage var allocated_nodes: Array[int]
+var version: int
+var allocated_nodes: Array[int]
+var allocation_level: Dictionary[int, int]
 
 func _init():
 	version = 1
 	allocated_nodes = []
+	allocation_level = {}

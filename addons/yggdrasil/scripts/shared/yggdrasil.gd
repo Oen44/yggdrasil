@@ -51,3 +51,10 @@ static func get_root_path() -> String:
 
 static func get_registry_filename() -> String:
 	return ProjectSettings.get_setting(REGISTRY_FILENAME_SETTING, DEFAULT_REGISTRY_FILENAME)
+
+static func get_version_number(version: String = VERSION) -> int:
+	var parts = version.split(".")
+	var major = int(parts[0]) * 10000
+	var minor = int(parts[1]) * 100
+	var patch = int(parts[2])
+	return major + minor + patch

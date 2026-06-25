@@ -18,6 +18,7 @@ signal changed
 @export var id_input: LineEdit
 @export var name_input: LineEdit
 @export var description_input: TextEdit
+@export var max_allocation_input: SpinBox
 
 @export_group("Transform")
 @export var transform_panel: FoldableContainer
@@ -58,6 +59,7 @@ func init(tree_view: YggdrasilTreeView):
 	root_check.toggled.connect(_on_root_toggled)
 	name_input.text_changed.connect(_on_name_changed)
 	description_input.text_changed.connect(_on_description_changed)
+	max_allocation_input.value_changed.connect(_on_max_allocation_changed)
 	
 	icon_selector.init()
 	icon_selector.icon_selected.connect(_on_icon_selected)
@@ -114,6 +116,7 @@ func _on_node_selected(node: YggdrasilNodeButton):
 	transform_panel.hide()
 	visuals_panel.hide()
 	connection_panel.hide()
+	max_allocation_input.get_parent().hide()
 
 	if not node:
 		return
@@ -123,11 +126,13 @@ func _on_node_selected(node: YggdrasilNodeButton):
 		name_input.text = node.node_data.name
 		description_input.text = node.node_data.description
 		root_check.button_pressed = node.is_root
+		max_allocation_input.set_value_no_signal(node.max_allocation)
 		info_panel.show()
 		border_normal_input.show()
 		border_intermediate_input.show()
 		border_active_input.show()
 		root_panel.show()
+		max_allocation_input.get_parent().show()
 	
 	transform_panel.show()
 
@@ -249,6 +254,19 @@ func _on_description_changed():
 		return
 	
 	update_node_description(_selected_node, description_input.text)
+
+func _on_max_allocation_changed(value: float):
+	if not _selected_node:
+		return
+	
+	if _selected_node.type == YggdrasilNode.NodeType.DECORATION:
+		return
+	
+	if _selected_node.prefab:
+		_selected_node.prefab.set_max_allocation(int(value))
+	else:
+		_selected_node.max_allocation = int(value)
+	changed.emit()
 
 func _on_icon_selected(node_type: int, texture: Texture2D, region: Vector2):
 	if not _selected_node:

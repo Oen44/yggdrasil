@@ -146,6 +146,7 @@ func edit_tree(path: String):
 	settings_editor.revealed_changed.connect(_on_revealed_changed)
 	settings_editor.allocation_changed.connect(_on_allocation_changed)
 	settings_editor.preallocation_changed.connect(_on_preallocation_changed)
+	settings_editor.multiallocation_changed.connect(_on_multiallocation_changed)
 	
 	_tree_view.camera.zoom_changed.connect(_on_camera_zoom_changed)
 	inspector.init(_tree_view)
@@ -633,4 +634,7 @@ func _on_allocation_changed():
 				node.set_state(Yggdrasil.AllocationState.NORMAL)
 
 func _on_preallocation_changed():
+	pass
+
+func _on_multiallocation_changed():
 	pass

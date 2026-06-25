@@ -28,7 +28,7 @@ expand_margin_top = 4.0
 expand_margin_right = 8.0
 expand_margin_bottom = 4.0
 
-[node name="Inspector" type="ScrollContainer" unique_id=1161158692 node_paths=PackedStringArray("root_panel", "root_check", "info_panel", "id_input", "name_input", "description_input", "transform_panel", "position_x", "position_y", "visuals_panel", "icon_input", "border_normal_input", "border_intermediate_input", "border_active_input", "attributes_panel", "attributes_tree", "connection_panel")]
+[node name="Inspector" type="ScrollContainer" unique_id=1161158692 node_paths=PackedStringArray("root_panel", "root_check", "info_panel", "id_input", "name_input", "description_input", "max_allocation_input", "transform_panel", "position_x", "position_y", "visuals_panel", "icon_input", "border_normal_input", "border_intermediate_input", "border_active_input", "attributes_panel", "attributes_tree", "connection_panel")]
 offset_right = 265.0
 offset_bottom = 639.0
 script = ExtResource("1_ptw0q")
@@ -38,6 +38,7 @@ info_panel = NodePath("VBoxContainer/Info")
 id_input = NodePath("VBoxContainer/Info/Index/IndexInput")
 name_input = NodePath("VBoxContainer/Info/Name/NameInput")
 description_input = NodePath("VBoxContainer/Info/Description/DescriptionInput")
+max_allocation_input = NodePath("VBoxContainer/Info/MaxAllocation/MaxAllocationInput")
 transform_panel = NodePath("VBoxContainer/Transform")
 position_x = NodePath("VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer/PositionX")
 position_y = NodePath("VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer2/PositionY")
@@ -112,6 +113,23 @@ text = "Description"
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="MaxAllocation" type="HBoxContainer" parent="VBoxContainer/Info" unique_id=978062323]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Info/MaxAllocation" unique_id=673228548]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Max Allocations"
+
+[node name="MaxAllocationInput" type="SpinBox" parent="VBoxContainer/Info/MaxAllocation" unique_id=1171490642]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
 
 [node name="Transform" type="FoldableContainer" parent="VBoxContainer" unique_id=994059703]
 visible = false

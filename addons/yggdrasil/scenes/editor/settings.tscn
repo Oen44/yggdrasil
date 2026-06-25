@@ -12,7 +12,7 @@ expand_margin_top = 4.0
 expand_margin_right = 8.0
 expand_margin_bottom = 4.0
 
-[node name="Settings" type="ScrollContainer" unique_id=1515994406 node_paths=PackedStringArray("version_input", "size_x_input", "size_y_input", "border_scale_input", "bg_color_picker", "bg_texture_input", "small_icon_x_input", "small_icon_y_input", "medium_icon_x_input", "medium_icon_y_input", "large_icon_x_input", "large_icon_y_input", "small_size_x_input", "small_size_y_input", "medium_size_x_input", "medium_size_y_input", "large_size_x_input", "large_size_y_input", "line_normal_input", "line_intermediate_input", "line_active_input", "revelead_checkbox", "allocation_checkbox", "preallocation_checkbox")]
+[node name="Settings" type="ScrollContainer" unique_id=1515994406 node_paths=PackedStringArray("version_input", "size_x_input", "size_y_input", "border_scale_input", "bg_color_picker", "bg_texture_input", "small_icon_x_input", "small_icon_y_input", "medium_icon_x_input", "medium_icon_y_input", "large_icon_x_input", "large_icon_y_input", "small_size_x_input", "small_size_y_input", "medium_size_x_input", "medium_size_y_input", "large_size_x_input", "large_size_y_input", "line_normal_input", "line_intermediate_input", "line_active_input", "revelead_checkbox", "allocation_checkbox", "preallocation_checkbox", "multiallocation_checkbox")]
 script = ExtResource("1_wyx1b")
 version_input = NodePath("VBoxContainer/Version/HBoxContainer/Version")
 size_x_input = NodePath("VBoxContainer/Size/VBoxContainer/HBoxContainer/SizeX")
@@ -38,6 +38,7 @@ line_active_input = NodePath("VBoxContainer/Lines/VBoxContainer/LineTextureActiv
 revelead_checkbox = NodePath("VBoxContainer/Interaction/VBoxContainer/Revealed/CheckBox")
 allocation_checkbox = NodePath("VBoxContainer/Interaction/VBoxContainer/Allocation/CheckBox")
 preallocation_checkbox = NodePath("VBoxContainer/Interaction/VBoxContainer/Preallocation/CheckBox")
+multiallocation_checkbox = NodePath("VBoxContainer/Interaction/VBoxContainer/Multiallocation/CheckBox")
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=689757185]
@@ -514,4 +515,17 @@ text = "Pre-allocation"
 layout_mode = 2
 size_flags_horizontal = 3
 button_pressed = true
+text = "On"
+
+[node name="Multiallocation" type="HBoxContainer" parent="VBoxContainer/Interaction/VBoxContainer" unique_id=1199799908]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Interaction/VBoxContainer/Multiallocation" unique_id=949428700]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Multi-allocation"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Interaction/VBoxContainer/Multiallocation" unique_id=899318114]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "On"

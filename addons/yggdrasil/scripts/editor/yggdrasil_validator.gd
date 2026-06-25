@@ -19,6 +19,7 @@ enum WarningEntry {
 	INTERMEDIATE_LINE_TEXTURE_NOT_SET,
 	ACTIVE_LINE_TEXTURE_NOT_SET,
 	PREALLOCATION_WITHOUT_ALLOCATION,
+	MULTIALLOCATION_WITHOUT_ALLOCATION,
 }
 
 enum ErrorEntry {
@@ -38,7 +39,8 @@ const WarningMessages = {
 	WarningEntry.NORMAL_LINE_TEXTURE_NOT_SET: "Normal line texture is not set.",
 	WarningEntry.INTERMEDIATE_LINE_TEXTURE_NOT_SET: "Intermediate line texture is not set.",
 	WarningEntry.ACTIVE_LINE_TEXTURE_NOT_SET: "Active line texture is not set.",
-	WarningEntry.PREALLOCATION_WITHOUT_ALLOCATION: "Preallocation is enabled without allocation.",
+	WarningEntry.PREALLOCATION_WITHOUT_ALLOCATION: "Pre-allocation is enabled without allocation.",
+	WarningEntry.MULTIALLOCATION_WITHOUT_ALLOCATION: "Multi-allocation is enabled without allocation.",
 }
 
 const ErrorMessages = {
@@ -123,6 +125,8 @@ func _run_validation():
 		_warnings.append(WarningEntry.ACTIVE_LINE_TEXTURE_NOT_SET)
 	if editor.tree.preallocation and not editor.tree.allocation:
 		_warnings.append(WarningEntry.PREALLOCATION_WITHOUT_ALLOCATION)
+	if editor.tree.multiallocation and not editor.tree.allocation:
+		_warnings.append(WarningEntry.MULTIALLOCATION_WITHOUT_ALLOCATION)
 	
 	warning_btn.text = str(_warnings.size())
 

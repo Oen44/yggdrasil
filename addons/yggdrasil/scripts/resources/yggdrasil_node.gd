@@ -27,6 +27,7 @@ enum NodeType {
 @export_storage var in_nodes # : Array[int] # Connection from other nodes to this
 
 @export_storage var attributes # : Dictionary[String, Array]
+@export_storage var max_allocation: int
 
 # Editor-only properties
 @export_storage var locked: bool
@@ -36,6 +37,7 @@ func _init():
 	out_nodes = []
 	in_nodes = []
 	attributes = {}
+	max_allocation = 1
 
 func get_attribute_value(attribute_id: String) -> Array:
 	return attributes.get(attribute_id, [])

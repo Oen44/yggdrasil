@@ -8,6 +8,7 @@ extends Resource
 @export_storage var revealed: bool = true
 @export_storage var allocation: bool = true
 @export_storage var preallocation: bool = true
+@export_storage var multiallocation: bool = false
 
 @export_group("Visuals")
 @export_storage var size: Vector2 = Vector2(5000, 5000)
