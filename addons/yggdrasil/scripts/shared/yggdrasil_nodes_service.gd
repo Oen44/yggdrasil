@@ -59,6 +59,7 @@ func _build_node(node_type: YggdrasilNode.NodeType, icon_texture: Texture2D = nu
 func _create_node_from_data(node_data: YggdrasilNode) -> YggdrasilNodeButton:
 	var node = _build_node(node_data.type, node_data.icon, node_data.border_normal)
 	node.node_data = node_data
+	node.external_id = node_data.name
 	_tree_view.nodes_container.add_child(node)
 	
 	_position(node, node_data.position)

@@ -643,6 +643,7 @@ func _connect_prefab_signals(prefab: YggdrasilPrefab):
 func _on_prefab_name_changed(prefab: YggdrasilPrefab):
 	for node in prefab.nodes:
 		node.node_name = prefab.node_name
+		node.external_id = prefab.id
 
 func _on_prefab_description_changed(prefab: YggdrasilPrefab):
 	for node in prefab.nodes:

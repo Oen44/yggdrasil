@@ -11,6 +11,7 @@ enum NodeType {
 @export_storage var is_root: bool
 @export_storage var reference_id: String
 @export_storage var id: int
+@export_storage var external_id: String
 @export_storage var name: String
 @export_storage var description: String
 

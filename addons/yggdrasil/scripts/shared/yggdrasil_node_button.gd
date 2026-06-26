@@ -36,6 +36,12 @@ var reference_id: String:
 	set(value):
 		node_data.reference_id = value
 
+var external_id: String:
+	get:
+		return node_data.external_id
+	set(value):
+		node_data.external_id = value
+
 var node_name: String:
 	get:
 		return node_data.name

@@ -12,7 +12,29 @@ expand_margin_top = 4.0
 expand_margin_right = 8.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="DPITexture" id="DPITexture_wyx1b"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 1v14h2.707a2.5 2.5 0 0 1-.207-1A2.49 2.49 0 0 1 7 11.5c.565 0 1.083.188 1.5.5a2.494 2.494 0 0 1 3 0 2.51 2.51 0 0 1 2.5-.293V6H9V1Zm8 0v4h4z\"/><path fill=\"#e0e0e0\" d=\"M8 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_xvrd1"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 1v1h-4v2h14v-2h-4v-1zm-3 4v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8zm1 2h2v6h-2zm4 0h2v6h-2zm4 0h2v6h-2z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
 [node name="Settings" type="ScrollContainer" unique_id=1515994406 node_paths=PackedStringArray("version_input", "size_x_input", "size_y_input", "border_scale_input", "bg_color_picker", "bg_texture_input", "small_icon_x_input", "small_icon_y_input", "medium_icon_x_input", "medium_icon_y_input", "large_icon_x_input", "large_icon_y_input", "small_size_x_input", "small_size_y_input", "medium_size_x_input", "medium_size_y_input", "large_size_x_input", "large_size_y_input", "line_normal_input", "line_intermediate_input", "line_active_input", "revelead_checkbox", "allocation_checkbox", "preallocation_checkbox", "multiallocation_checkbox")]
+offset_right = 394.0
+offset_bottom = 653.0
 script = ExtResource("1_wyx1b")
 version_input = NodePath("VBoxContainer/Version/HBoxContainer/Version")
 size_x_input = NodePath("VBoxContainer/Size/VBoxContainer/HBoxContainer/SizeX")
@@ -51,6 +73,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Version" unique_id=1243234169]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: version: int
+Tree version, used with YggdrasilTreeView.tree_version_mismatch signal"
+mouse_filter = 0
 text = "Version"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Version" unique_id=770245789]
@@ -77,6 +102,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Size" unique_id=814386786]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: size: Vector2
+Size of the tree rect"
+mouse_filter = 0
 text = "Size"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Size" unique_id=232664603]
@@ -124,6 +152,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/BorderScale" unique_id=24470853]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: border_scale: float
+Scale multiplier for nodes border"
+mouse_filter = 0
 text = "Border Scale"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BorderScale" unique_id=2097901245]
@@ -158,6 +189,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Background/VBoxContainer/HBoxContainer" unique_id=928990030]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: bg_color: Color
+Background color of the tree, not used with Texture is set"
+mouse_filter = 0
 text = "Color"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/Background/VBoxContainer/HBoxContainer" unique_id=1251998049]
@@ -167,6 +201,18 @@ size_flags_horizontal = 3
 [node name="Texture" parent="VBoxContainer/Background/VBoxContainer" unique_id=615627613 instance=ExtResource("3_xvrd1")]
 layout_mode = 2
 title = "Texture"
+
+[node name="Label" parent="VBoxContainer/Background/VBoxContainer/Texture" index="0" unique_id=545171583]
+tooltip_text = "Property: bg_texture: Texture2D
+Tiled background texture for the tree"
+mouse_filter = 0
+text = "Texture"
+
+[node name="QuickLoad" parent="VBoxContainer/Background/VBoxContainer/Texture/Texture" parent_id_path=PackedInt32Array(615627613, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Background/VBoxContainer/Texture/Texture" parent_id_path=PackedInt32Array(615627613, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
 
 [node name="IconSize" type="FoldableContainer" parent="VBoxContainer" unique_id=1226946052]
 layout_mode = 2
@@ -181,6 +227,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/IconSize/VBoxContainer/SmallNode" unique_id=227345741]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: icon_sizes: Dictionary[NodeType, Vector2]
+Size of individual icon in the spritesheet"
+mouse_filter = 0
 text = "Small Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/IconSize/VBoxContainer/SmallNode" unique_id=210141398]
@@ -224,6 +273,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/IconSize/VBoxContainer/MediumNode" unique_id=1054713380]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: icon_sizes: Dictionary[NodeType, Vector2]
+Size of individual icon in the spritesheet"
+mouse_filter = 0
 text = "Medium Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/IconSize/VBoxContainer/MediumNode" unique_id=2120340149]
@@ -267,6 +319,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/IconSize/VBoxContainer/LargeNode" unique_id=156410679]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: icon_sizes: Dictionary[NodeType, Vector2]
+Size of individual icon in the spritesheet"
+mouse_filter = 0
 text = "Large Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/IconSize/VBoxContainer/LargeNode" unique_id=1815351740]
@@ -317,6 +372,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/NodeSize/VBoxContainer/SmallNode" unique_id=1703586913]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: node_size: Dictionary[NodeType, Vector2]
+Size of the node control object"
+mouse_filter = 0
 text = "Small Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NodeSize/VBoxContainer/SmallNode" unique_id=397499389]
@@ -364,6 +422,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/NodeSize/VBoxContainer/MediumNode" unique_id=1852684545]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: node_size: Dictionary[NodeType, Vector2]
+Size of the node control object"
+mouse_filter = 0
 text = "Medium Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NodeSize/VBoxContainer/MediumNode" unique_id=1168495816]
@@ -410,6 +471,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/NodeSize/VBoxContainer/LargeNode" unique_id=1130745980]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: node_size: Dictionary[NodeType, Vector2]
+Size of the node control object"
+mouse_filter = 0
 text = "Large Node"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/NodeSize/VBoxContainer/LargeNode" unique_id=161438820]
@@ -460,13 +524,49 @@ layout_mode = 2
 layout_mode = 2
 title = "Normal"
 
+[node name="Label" parent="VBoxContainer/Lines/VBoxContainer/LineTextureNormal" index="0" unique_id=545171583]
+tooltip_text = "Property: line_texture_normal: Texture2D
+Texture for the connection line between Normal nodes"
+mouse_filter = 0
+text = "Normal"
+
+[node name="QuickLoad" parent="VBoxContainer/Lines/VBoxContainer/LineTextureNormal/Texture" parent_id_path=PackedInt32Array(863448670, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Lines/VBoxContainer/LineTextureNormal/Texture" parent_id_path=PackedInt32Array(863448670, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
+
 [node name="LineTextureIntermediate" parent="VBoxContainer/Lines/VBoxContainer" unique_id=1655889254 instance=ExtResource("3_xvrd1")]
 layout_mode = 2
 title = "Intermediate"
 
+[node name="Label" parent="VBoxContainer/Lines/VBoxContainer/LineTextureIntermediate" index="0" unique_id=545171583]
+tooltip_text = "Property: line_texture_intermediate: Texture2D
+Texture for the connection line between Active and Normal nodes"
+mouse_filter = 0
+text = "Intermediate"
+
+[node name="QuickLoad" parent="VBoxContainer/Lines/VBoxContainer/LineTextureIntermediate/Texture" parent_id_path=PackedInt32Array(1655889254, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Lines/VBoxContainer/LineTextureIntermediate/Texture" parent_id_path=PackedInt32Array(1655889254, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
+
 [node name="LineTextureActive" parent="VBoxContainer/Lines/VBoxContainer" unique_id=964902483 instance=ExtResource("3_xvrd1")]
 layout_mode = 2
 title = "Active"
+
+[node name="Label" parent="VBoxContainer/Lines/VBoxContainer/LineTextureActive" index="0" unique_id=545171583]
+tooltip_text = "Property: line_texture_active: Texture2D
+Texture for the connection line between Active nodes"
+mouse_filter = 0
+text = "Active"
+
+[node name="QuickLoad" parent="VBoxContainer/Lines/VBoxContainer/LineTextureActive/Texture" parent_id_path=PackedInt32Array(964902483, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Lines/VBoxContainer/LineTextureActive/Texture" parent_id_path=PackedInt32Array(964902483, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
 
 [node name="Interaction" type="FoldableContainer" parent="VBoxContainer" unique_id=165197102]
 layout_mode = 2
@@ -481,6 +581,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Interaction/VBoxContainer/Revealed" unique_id=289549231]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: revealed: bool
+If enabled, entire tree is visible. If disabled, only Active and Intermediate nodes are visible."
+mouse_filter = 0
 text = "Revealed"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Interaction/VBoxContainer/Revealed" unique_id=1905955862]
@@ -495,6 +598,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Interaction/VBoxContainer/Allocation" unique_id=803268241]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: allocation: bool
+If enabled, nodes can be interacted with by pressing them which triggers allocation"
+mouse_filter = 0
 text = "Allocation"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Interaction/VBoxContainer/Allocation" unique_id=1042449128]
@@ -509,6 +615,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Interaction/VBoxContainer/Preallocation" unique_id=1304593142]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: preallocation: bool
+If enabled, pressing nodes will not allocate them unless confirmed using YggdrasilAllocationService.confirm_preallocations.
+
+Requires Allocation to be enabled."
+mouse_filter = 0
 text = "Pre-allocation"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Interaction/VBoxContainer/Preallocation" unique_id=1527553535]
@@ -523,9 +634,19 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Interaction/VBoxContainer/Multiallocation" unique_id=949428700]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: multiallocation: bool
+If enabled, nodes can by allocated multiple times (configured per node) and have different attribute values based on allocation level.
+
+Requires Allocation to be enabled."
+mouse_filter = 0
 text = "Multi-allocation"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Interaction/VBoxContainer/Multiallocation" unique_id=899318114]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "On"
+
+[editable path="VBoxContainer/Background/VBoxContainer/Texture"]
+[editable path="VBoxContainer/Lines/VBoxContainer/LineTextureNormal"]
+[editable path="VBoxContainer/Lines/VBoxContainer/LineTextureIntermediate"]
+[editable path="VBoxContainer/Lines/VBoxContainer/LineTextureActive"]

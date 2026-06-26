@@ -122,7 +122,7 @@ func _on_node_selected(node: YggdrasilNodeButton):
 		return
 
 	if node.type != YggdrasilNode.NodeType.DECORATION:
-		id_input.text = node.node_data.name.to_snake_case()
+		id_input.text = node.external_id
 		name_input.text = node.node_data.name
 		description_input.text = node.node_data.description
 		root_check.button_pressed = node.is_root
@@ -677,6 +677,7 @@ func update_node_name(node: YggdrasilNodeButton, new_name: String):
 		node.prefab.set_node_name(new_name)
 	else:
 		node.node_name = new_name
+		node.external_id = new_name.to_snake_case()
 	changed.emit()
 
 func update_node_description(node: YggdrasilNodeButton, new_description: String):

@@ -28,6 +28,26 @@ expand_margin_top = 4.0
 expand_margin_right = 8.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="DPITexture" id="DPITexture_wyx1b"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 1v14h2.707a2.5 2.5 0 0 1-.207-1A2.49 2.49 0 0 1 7 11.5c.565 0 1.083.188 1.5.5a2.494 2.494 0 0 1 3 0 2.51 2.51 0 0 1 2.5-.293V6H9V1Zm8 0v4h4z\"/><path fill=\"#e0e0e0\" d=\"M8 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_xvrd1"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m5 1v1h-4v2h14v-2h-4v-1zm-3 4v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8zm1 2h2v6h-2zm4 0h2v6h-2zm4 0h2v6h-2z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
 [node name="Inspector" type="ScrollContainer" unique_id=1161158692 node_paths=PackedStringArray("root_panel", "root_check", "info_panel", "id_input", "name_input", "description_input", "max_allocation_input", "transform_panel", "position_x", "position_y", "visuals_panel", "icon_input", "border_normal_input", "border_intermediate_input", "border_active_input", "attributes_panel", "attributes_tree", "connection_panel")]
 offset_right = 265.0
 offset_bottom = 639.0
@@ -40,8 +60,8 @@ name_input = NodePath("VBoxContainer/Info/Name/NameInput")
 description_input = NodePath("VBoxContainer/Info/Description/DescriptionInput")
 max_allocation_input = NodePath("VBoxContainer/Info/MaxAllocation/MaxAllocationInput")
 transform_panel = NodePath("VBoxContainer/Transform")
-position_x = NodePath("VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer/PositionX")
-position_y = NodePath("VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer2/PositionY")
+position_x = NodePath("VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer/PositionX")
+position_y = NodePath("VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer2/PositionY")
 visuals_panel = NodePath("VBoxContainer/Visuals")
 icon_input = NodePath("VBoxContainer/Visuals/VBoxContainer/Icon")
 border_normal_input = NodePath("VBoxContainer/Visuals/VBoxContainer/BorderNormal")
@@ -58,12 +78,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Root" type="HBoxContainer" parent="VBoxContainer" unique_id=1317430567]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/Root" unique_id=987043186]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: is_root: bool
+Sets selected node as Root (\"starting node\"). Root nodes can be allocated at any time.
+
+Multiple Root nodes are allowed."
+mouse_filter = 0
 text = "Is Root"
 
 [node name="RootCheck" type="CheckBox" parent="VBoxContainer/Root" unique_id=248071109]
@@ -72,7 +96,6 @@ size_flags_horizontal = 3
 text = "On"
 
 [node name="Info" type="VBoxContainer" parent="VBoxContainer" unique_id=1532299154]
-visible = false
 layout_mode = 2
 
 [node name="Index" type="HBoxContainer" parent="VBoxContainer/Info" unique_id=2014314274]
@@ -81,6 +104,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Info/Index" unique_id=60054294]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: external_id: String
+Generated based on Name."
+mouse_filter = 0
 text = "ID"
 
 [node name="IndexInput" type="LineEdit" parent="VBoxContainer/Info/Index" unique_id=943314869]
@@ -94,6 +120,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Info/Name" unique_id=1163505664]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: name: String
+Name of the Node."
+mouse_filter = 0
 text = "Name"
 
 [node name="NameInput" type="LineEdit" parent="VBoxContainer/Info/Name" unique_id=1268554280]
@@ -107,6 +136,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+tooltip_text = "Property: description: String
+Description of the Node"
+mouse_filter = 0
 text = "Description"
 
 [node name="DescriptionInput" type="TextEdit" parent="VBoxContainer/Info/Description" unique_id=517203091]
@@ -121,6 +153,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+tooltip_text = "Property: max_allocations: int
+Maximum level of allocation if Multi-allocation is enabled."
+mouse_filter = 0
 text = "Max Allocations"
 
 [node name="MaxAllocationInput" type="SpinBox" parent="VBoxContainer/Info/MaxAllocation" unique_id=1171490642]
@@ -132,53 +167,52 @@ rounded = true
 allow_greater = true
 
 [node name="Transform" type="FoldableContainer" parent="VBoxContainer" unique_id=994059703]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jahc1")
 title = "Transform"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Transform" unique_id=1462651173]
+[node name="Position" type="HBoxContainer" parent="VBoxContainer/Transform" unique_id=1955893937]
 layout_mode = 2
 
-[node name="Position" type="HBoxContainer" parent="VBoxContainer/Transform/VBoxContainer" unique_id=1955893937]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/Transform/VBoxContainer/Position" unique_id=428856933]
+[node name="Label" type="Label" parent="VBoxContainer/Transform/Position" unique_id=428856933]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: position: Vector2
+Position of the Node."
+mouse_filter = 0
 text = "Position"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Transform/VBoxContainer/Position" unique_id=659545076]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Transform/Position" unique_id=659545076]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer" unique_id=2055788481]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Transform/Position/VBoxContainer" unique_id=2055788481]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer" unique_id=901736133]
+[node name="Label" type="Label" parent="VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer" unique_id=901736133]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.23921569, 0.28235295, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_smk3j")
 text = "X"
 
-[node name="PositionX" type="SpinBox" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer" unique_id=678154907]
+[node name="PositionX" type="SpinBox" parent="VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer" unique_id=678154907]
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
 allow_greater = true
 allow_lesser = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer" unique_id=32361739]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Transform/Position/VBoxContainer" unique_id=32361739]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer2" unique_id=1176394991]
+[node name="Label" type="Label" parent="VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer2" unique_id=1176394991]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.42352942, 0.5058824, 0.2509804, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_smk3j")
 text = "Y"
 
-[node name="PositionY" type="SpinBox" parent="VBoxContainer/Transform/VBoxContainer/Position/VBoxContainer/HBoxContainer2" unique_id=1325444515]
+[node name="PositionY" type="SpinBox" parent="VBoxContainer/Transform/Position/VBoxContainer/HBoxContainer2" unique_id=1325444515]
 layout_mode = 2
 size_flags_horizontal = 3
 rounded = true
@@ -186,7 +220,6 @@ allow_greater = true
 allow_lesser = true
 
 [node name="Visuals" type="FoldableContainer" parent="VBoxContainer" unique_id=1503523885]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jahc1")
 title = "Visuals"
@@ -198,20 +231,67 @@ layout_mode = 2
 layout_mode = 2
 title = "Icon"
 
+[node name="Label" parent="VBoxContainer/Visuals/VBoxContainer/Icon" index="0" unique_id=545171583]
+tooltip_text = "Property: icon: Texture2D
+Icon from the spritesheet."
+mouse_filter = 0
+text = "Icon"
+
+[node name="QuickLoad" parent="VBoxContainer/Visuals/VBoxContainer/Icon/Texture" parent_id_path=PackedInt32Array(615627613, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Visuals/VBoxContainer/Icon/Texture" parent_id_path=PackedInt32Array(615627613, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
+
 [node name="BorderNormal" parent="VBoxContainer/Visuals/VBoxContainer" unique_id=1176080470 instance=ExtResource("3_r6hlt")]
 layout_mode = 2
 title = "Border Normal"
+
+[node name="Label" parent="VBoxContainer/Visuals/VBoxContainer/BorderNormal" index="0" unique_id=545171583]
+tooltip_text = "Property: border_normal: Texture2D
+Border texture for Normal state."
+mouse_filter = 0
+text = "Border Normal"
+
+[node name="QuickLoad" parent="VBoxContainer/Visuals/VBoxContainer/BorderNormal/Texture" parent_id_path=PackedInt32Array(1176080470, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Visuals/VBoxContainer/BorderNormal/Texture" parent_id_path=PackedInt32Array(1176080470, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
 
 [node name="BorderIntermediate" parent="VBoxContainer/Visuals/VBoxContainer" unique_id=1295996994 instance=ExtResource("3_r6hlt")]
 layout_mode = 2
 title = "Border Intermediate"
 
+[node name="Label" parent="VBoxContainer/Visuals/VBoxContainer/BorderIntermediate" index="0" unique_id=545171583]
+tooltip_text = "Property: border_intermediate: Texture2D
+Border texture for Intermediate  state."
+mouse_filter = 0
+text = "Border Intermediate"
+
+[node name="QuickLoad" parent="VBoxContainer/Visuals/VBoxContainer/BorderIntermediate/Texture" parent_id_path=PackedInt32Array(1295996994, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Visuals/VBoxContainer/BorderIntermediate/Texture" parent_id_path=PackedInt32Array(1295996994, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
+
 [node name="BorderActive" parent="VBoxContainer/Visuals/VBoxContainer" unique_id=1521259198 instance=ExtResource("3_r6hlt")]
 layout_mode = 2
 title = "Border Active"
 
+[node name="Label" parent="VBoxContainer/Visuals/VBoxContainer/BorderActive" index="0" unique_id=545171583]
+tooltip_text = "Property: border_active: Texture2D
+Border texture for Active state."
+mouse_filter = 0
+text = "Border Active"
+
+[node name="QuickLoad" parent="VBoxContainer/Visuals/VBoxContainer/BorderActive/Texture" parent_id_path=PackedInt32Array(1521259198, 200206517) index="0" unique_id=1596685358]
+icon = SubResource("DPITexture_wyx1b")
+
+[node name="Clear" parent="VBoxContainer/Visuals/VBoxContainer/BorderActive/Texture" parent_id_path=PackedInt32Array(1521259198, 200206517) index="1" unique_id=916789768]
+icon = SubResource("DPITexture_xvrd1")
+
 [node name="Attributes" type="FoldableContainer" parent="VBoxContainer" unique_id=935531078]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jahc1")
 title = "Attributes"
@@ -224,10 +304,14 @@ script = ExtResource("4_wh5wr")
 rename_shortcut = ExtResource("5_uhjkn")
 
 [node name="Connections" type="FoldableContainer" parent="VBoxContainer" unique_id=355182382]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jahc1")
 title = "Connections"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Connections" unique_id=423275871]
 layout_mode = 2
+
+[editable path="VBoxContainer/Visuals/VBoxContainer/Icon"]
+[editable path="VBoxContainer/Visuals/VBoxContainer/BorderNormal"]
+[editable path="VBoxContainer/Visuals/VBoxContainer/BorderIntermediate"]
+[editable path="VBoxContainer/Visuals/VBoxContainer/BorderActive"]

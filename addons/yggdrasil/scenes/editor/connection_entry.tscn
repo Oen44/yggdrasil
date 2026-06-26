@@ -13,6 +13,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Inputs/LineType" unique_id=278260212]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: line_type: LineType
+Line type for this connection."
+mouse_filter = 0
 text = "Line Type"
 
 [node name="LineTypeDropdown" type="OptionButton" parent="Inputs/LineType" unique_id=1278295444]
@@ -33,6 +36,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Inputs/Curve" unique_id=1353923011]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: curve_height: float
+Curve size for Bezier line type."
+mouse_filter = 0
 text = "Curve"
 
 [node name="CurveInput" type="SpinBox" parent="Inputs/Curve" unique_id=2048540872]
@@ -47,6 +53,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Inputs/Segments" unique_id=1778262454]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: segments: int
+Number of segments that the line is split into. Higher number increases smoothness."
+mouse_filter = 0
 text = "Segments"
 
 [node name="SegmentsInput" type="SpinBox" parent="Inputs/Segments" unique_id=1118564293]
@@ -63,6 +72,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Inputs/Reversed" unique_id=1786453214]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Property: reversed: bool
+If enabled, line will be rendered on the opposite side."
+mouse_filter = 0
 text = "Reversed"
 
 [node name="ReversedCheck" type="CheckBox" parent="Inputs/Reversed" unique_id=396809424]
