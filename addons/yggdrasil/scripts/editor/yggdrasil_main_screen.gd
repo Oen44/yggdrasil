@@ -118,5 +118,5 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 	
 	var tag: String = json.tag_name
 	var version = tag.substr(1)
-	if Yggdrasil.VERSION != version:
+	if Yggdrasil.get_version_number() < Yggdrasil.get_version_number(version):
 		update_available.emit(version)
