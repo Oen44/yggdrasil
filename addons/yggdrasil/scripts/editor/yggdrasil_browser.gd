@@ -423,7 +423,7 @@ func _create_tree_group(group_item: TreeItem):
 
 	var file_path = "%s/%s.tres" % [path, group_name.to_snake_case()]
 	if FileAccess.file_exists(file_path):
-		print("Group with name \"%s\" already exists." % group_name)
+		push_error("Group with name \"%s\" already exists." % group_name)
 		return
 
 	var group = YggdrasilGroup.new()
@@ -438,7 +438,7 @@ func _create_tree_group(group_item: TreeItem):
 		group_item.set_metadata(0, {"uid": ResourceLoader.get_resource_uid(file_path)})
 		_on_group_added()
 	else:
-		print("Error saving tree group: %s" % error_string(err))
+		push_error("Error saving tree group: %s" % error_string(err))
 
 func _create_tree_data(group: YggdrasilGroup, tree_item: TreeItem, scan_filesystem: bool = true, copy_from: YggdrasilTree = null):
 	var path: String = group.resource_path.get_base_dir()
@@ -452,7 +452,7 @@ func _create_tree_data(group: YggdrasilGroup, tree_item: TreeItem, scan_filesyst
 
 	var file_path = "%s/%s.tres" % [path, tree_data.id]
 	if FileAccess.file_exists(file_path):
-		print("Tree with name \"%s\" already exists in group \"%s\"." % [tree_name, group.name])
+		push_error("Tree with name \"%s\" already exists in group \"%s\"." % [tree_name, group.name])
 		return
 
 	var err = ResourceSaver.save(tree_data, file_path)
@@ -466,21 +466,21 @@ func _create_tree_data(group: YggdrasilGroup, tree_item: TreeItem, scan_filesyst
 		tree_item.set_metadata(0, {"uid": ResourceLoader.get_resource_uid(file_path)})
 		_on_tree_added()
 	else:
-		print("Error saving tree data: %s" % error_string(err))
+		push_error("Error saving tree data: %s" % error_string(err))
 
 func _create_group_duplicate(group_item: TreeItem) -> bool:
 	var group_name = group_item.get_text(0)
 	var path: String = "%s/%s" % [Yggdrasil.get_root_path(), group_name]
 
 	if DirAccess.dir_exists_absolute(path):
-		print("Group with name \"%s\" already exists." % group_name)
+		push_error("Group with name \"%s\" already exists." % group_name)
 		return false
 	
 	DirAccess.make_dir_recursive_absolute(path)
 
 	var group_file_path = "%s/%s.tres" % [path, group_name.to_snake_case()]
 	if FileAccess.file_exists(group_file_path):
-		print("Group with name \"%s\" already exists." % group_name)
+		push_error("Group with name \"%s\" already exists." % group_name)
 		return false
 
 	var original_group_path = ResourceUID.get_id_path(group_item.get_metadata(0)["duplicate_of"])
@@ -492,7 +492,7 @@ func _create_group_duplicate(group_item: TreeItem) -> bool:
 	
 	var err = ResourceSaver.save(group, group_file_path)
 	if err != OK:
-		print("Error saving duplicated group: %s" % error_string(err))
+		push_error("Error saving duplicated group: %s" % error_string(err))
 		return false
 	
 	group = ResourceLoader.load(group_file_path)
@@ -527,7 +527,7 @@ func _create_tree_duplicate(tree_item: TreeItem) -> bool:
 
 	var file_path = "%s/%s.tres" % [group.resource_path.get_base_dir(), tree_id]
 	if FileAccess.file_exists(file_path):
-		print("Tree with name \"%s\" already exists in group \"%s\"." % [tree_name, group.name])
+		push_error("Tree with name \"%s\" already exists in group \"%s\"." % [tree_name, group.name])
 		return false
 	
 	var tree_data = YggdrasilTree.new()
@@ -537,7 +537,7 @@ func _create_tree_duplicate(tree_item: TreeItem) -> bool:
 
 	var err = ResourceSaver.save(tree_data, file_path)
 	if err != OK:
-		print("Error saving duplicated tree: %s" % error_string(err))
+		push_error("Error saving duplicated tree: %s" % error_string(err))
 		return false
 	
 	var saved_tree = ResourceLoader.load(file_path, "YggdrasilTree", ResourceLoader.CACHE_MODE_IGNORE)

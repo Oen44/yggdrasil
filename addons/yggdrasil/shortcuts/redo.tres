@@ -1,15 +1,15 @@
 [gd_resource type="Shortcut" format=3 uid="uid://bthq78v61ld3e"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_oo0vl"]
-device = -1
-ctrl_pressed = true
-keycode = 89
-
 [sub_resource type="InputEventKey" id="InputEventKey_b84jd"]
 device = -1
 shift_pressed = true
 ctrl_pressed = true
 keycode = 90
 
+[sub_resource type="InputEventKey" id="InputEventKey_oo0vl"]
+device = -1
+ctrl_pressed = true
+keycode = 89
+
 [resource]
-events = [SubResource("InputEventKey_oo0vl"), SubResource("InputEventKey_b84jd")]
+events = [SubResource("InputEventKey_b84jd"), SubResource("InputEventKey_oo0vl")]

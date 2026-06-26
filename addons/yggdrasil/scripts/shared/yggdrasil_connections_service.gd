@@ -12,10 +12,14 @@ signal node_disconnected(from_node: YggdrasilNodeButton, to_node_id: int)
 func load_tree(tree_data: YggdrasilTree) -> void:
 	_tree_data = tree_data
 
+	var invalid_nodes: Array[int] = []
 	for node_data in _tree_data.nodes:
 		var node = _tree_view.nodes_service.get_node(node_data.id)
 		for out_node_id in node_data.out_nodes:
 			var target_node = _tree_view.nodes_service.get_node(out_node_id)
+			if not target_node:
+				invalid_nodes.append(out_node_id)
+				continue
 			var line = _scene.instantiate()
 			line.name = "Line_%d_%d" % [node_data.id, out_node_id]
 			line.texture = _tree_data.line_texture_normal
@@ -30,6 +34,12 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 				line.visible = false
 			line_created.emit(line, node_data.id, out_node_id)
 			node_connected.emit(node, out_node_id)
+	
+	for node_data in _tree_data.nodes:
+		for invalid_node_id in invalid_nodes:
+			if node_data.out_nodes.has(invalid_node_id):
+				node_data.out_nodes.erase(invalid_node_id)
+				node_data.line_data.erase(invalid_node_id)
 
 func create_connection(from_node: YggdrasilNodeButton, to_node: YggdrasilNodeButton) -> void:
 	var existing_line = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [from_node.id, to_node.id])
@@ -138,7 +148,7 @@ func update_connected_lines(node: YggdrasilNodeButton):
 		return
 	
 	for node_id in node.out_nodes:
-		var line: YggdrasilConnection = _tree_view.lines_container.get_node("Line_%d_%d" % [node.id, node_id])
+		var line: YggdrasilConnection = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [node.id, node_id])
 		if line:
 			var target_node = _tree_view.nodes_service.get_node(node_id)
 			if target_node:
@@ -146,7 +156,7 @@ func update_connected_lines(node: YggdrasilNodeButton):
 				_connect_nodes(line, node, target_node, node.line_data[node_id])
 	
 	for node_id in node.in_nodes:
-		var line: YggdrasilConnection = _tree_view.lines_container.get_node("Line_%d_%d" % [node_id, node.id])
+		var line: YggdrasilConnection = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [node_id, node.id])
 		if line:
 			var source_node = _tree_view.nodes_service.get_node(node_id)
 			if source_node:
@@ -168,7 +178,10 @@ func on_node_allocation_changed(node: YggdrasilNodeButton):
 func _refresh_line_state(node_id: int, neighbor_id: int, is_out: bool):
 	var from_id = node_id if is_out else neighbor_id
 	var to_id = neighbor_id if is_out else node_id
-	var line: YggdrasilConnection = _tree_view.lines_container.get_node("Line_%d_%d" % [from_id, to_id])
+	var line: YggdrasilConnection = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [from_id, to_id])
+
+	if not line:
+		return
 
 	var from_node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(from_id)
 	var to_node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(to_id)
@@ -191,3 +204,49 @@ func _refresh_line_state(node_id: int, neighbor_id: int, is_out: bool):
 		line.texture = _tree_data.line_texture_normal
 		if not _tree_data.revealed:
 			line.visible = false
+
+func restore_connections(from_node: YggdrasilNodeButton) -> void:
+	for to_node_id in from_node.out_nodes:
+		var to_node = _tree_view.nodes_service.get_node(to_node_id)
+		if not to_node:
+			continue
+		
+		var existing_line = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [from_node.id, to_node.id])
+		if existing_line:
+			continue
+		
+		var line = _scene.instantiate()
+		line.name = "Line_%d_%d" % [from_node.id, to_node.id]
+		line.texture = _tree_data.line_texture_normal
+		line.texture_mode = Line2D.LINE_TEXTURE_TILE
+		line.width = 16.0
+		line.joint_mode = Line2D.LINE_JOINT_BEVEL
+		
+		_connect_nodes(line, from_node, to_node, from_node.line_data[to_node.id])
+		_tree_view.lines_container.add_child(line)
+
+		to_node.in_nodes.append(from_node.id)
+		line_created.emit(line, from_node.id, to_node.id)
+		node_connected.emit(from_node, to_node.id)
+	
+	for from_node_id in from_node.in_nodes:
+		var source_node = _tree_view.nodes_service.get_node(from_node_id)
+		if not source_node:
+			continue
+		
+		var existing_line = _tree_view.lines_container.get_node_or_null("Line_%d_%d" % [source_node.id, from_node.id])
+		if existing_line:
+			continue
+
+		var line = _scene.instantiate()
+		line.name = "Line_%d_%d" % [source_node.id, from_node.id]
+		line.texture = _tree_data.line_texture_normal
+		line.texture_mode = Line2D.LINE_TEXTURE_TILE
+		line.width = 16.0
+		line.joint_mode = Line2D.LINE_JOINT_BEVEL
+		
+		_connect_nodes(line, source_node, from_node, source_node.line_data[from_node.id])
+		_tree_view.lines_container.add_child(line)
+
+		line_created.emit(line, source_node.id, from_node.id)
+		node_connected.emit(source_node, from_node.id)

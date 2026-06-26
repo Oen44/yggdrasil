@@ -18,6 +18,7 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 
 func delete_node(node: YggdrasilNodeButton) -> void:
 	_nodes.erase(node.id)
+	_tree_view.nodes_container.remove_child(node)
 
 func _build_node(node_type: YggdrasilNode.NodeType, icon_texture: Texture2D = null, border_texture: Texture2D = null) -> YggdrasilNodeButton:
 	var node = _scene.instantiate()
@@ -288,3 +289,9 @@ func _refresh_node_state(node: YggdrasilNodeButton):
 
 func get_node(node_id: int) -> YggdrasilNodeButton:
 	return _nodes.get(node_id, null)
+
+func restore_node(node: YggdrasilNodeButton):
+	_nodes[node.id] = node
+	_tree_view.nodes_container.add_child(node)
+	_tree_data.nodes.append(node.node_data)
+	node_created.emit(node)

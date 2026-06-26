@@ -3,13 +3,14 @@ class_name YggdrasilMoveTool
 extends Control
 
 signal moved(positions: Array[Vector2])
-signal released
+signal released(positions: Array[Vector2], start_positions: Array[Vector2])
 
 const MOVE_HANDLE_DISTANCE: float = 25.0
 
 var _dragging = false
 var _drag_start_mouse: Vector2
 var _node_start_pos: Array[Vector2] = []
+var _positions: Array[Vector2]
 var nodes: Array[YggdrasilNodeButton] = []
 
 func _process(delta):
@@ -53,11 +54,11 @@ func input(event):
 					_node_start_pos.append(node.position)
 			else:
 				if _drag_start_mouse != event.position:
-					released.emit()
+					released.emit(_positions, _node_start_pos)
 	
 	if event is InputEventMouseMotion and _dragging:
-		var positions: Array[Vector2] = []
+		_positions = []
 		for i in range(nodes.size()):
 			var new_pos = _node_start_pos[i] + (event.position - _drag_start_mouse) / get_parent().offset_transform_scale
-			positions.append(new_pos)
-		moved.emit(positions)
+			_positions.append(new_pos)
+		moved.emit(_positions)

@@ -109,4 +109,7 @@ func _on_item_button_clicked(item: TreeItem, column: int, id: int, mouse_button_
 			item.set_button_tooltip_text(0, 0, "Unlock Node")
 		changed.emit()
 	elif id == 1:
-		editor.delete_node(node)
+		editor.undo_redo.create_action("Delete Node")
+		editor.undo_redo.add_do_method(editor.delete_node.bind(node))
+		editor.undo_redo.add_undo_method(editor.undo_delete_node.bind(node))
+		editor.undo_redo.commit_action()

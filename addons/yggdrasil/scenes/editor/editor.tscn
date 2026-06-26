@@ -9,6 +9,8 @@
 [ext_resource type="Shortcut" uid="uid://do5ll41g08v5b" path="res://addons/yggdrasil/shortcuts/duplicate.tres" id="4_u56xs"]
 [ext_resource type="Shortcut" uid="uid://cnnei65hdfjvb" path="res://addons/yggdrasil/shortcuts/delete.tres" id="5_7r17o"]
 [ext_resource type="PackedScene" uid="uid://d3sxdltevewgx" path="res://addons/yggdrasil/scenes/editor/prefab_panel.tscn" id="5_smk3j"]
+[ext_resource type="Shortcut" uid="uid://c3nnrgvucwk4n" path="res://addons/yggdrasil/shortcuts/undo.tres" id="6_571sh"]
+[ext_resource type="Shortcut" uid="uid://bthq78v61ld3e" path="res://addons/yggdrasil/shortcuts/redo.tres" id="7_8ebbj"]
 [ext_resource type="Script" uid="uid://b6r2wkr625w33" path="res://addons/yggdrasil/scripts/editor/yggdrasil_validator.gd" id="8_u56xs"]
 [ext_resource type="PackedScene" uid="uid://ca3b4jsppsh8k" path="res://addons/yggdrasil/scenes/editor/inspector.tscn" id="9_smk3j"]
 [ext_resource type="PackedScene" uid="uid://bf8n77la50phs" path="res://addons/yggdrasil/scenes/editor/icon_selector.tscn" id="10_5h8jn"]
@@ -29,6 +31,16 @@ unicode = 113
 [sub_resource type="Shortcut" id="Shortcut_whd8v"]
 events = [SubResource("InputEventKey_whd8v")]
 
+[sub_resource type="DPITexture" id="DPITexture_571sh"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M14 6.932 2 1.995l4.936 12 1.421-4.23 2.826 2.825 1.412-1.412L9.77 8.352z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
 [sub_resource type="InputEventKey" id="InputEventKey_jahc1"]
 device = -1
 keycode = 87
@@ -36,6 +48,16 @@ unicode = 119
 
 [sub_resource type="Shortcut" id="Shortcut_tlgcl"]
 events = [SubResource("InputEventKey_jahc1")]
+
+[sub_resource type="DPITexture" id="DPITexture_8ebbj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><g fill=\"#e0e0e0\"><circle cx=\"8\" cy=\"8\" r=\"2\"/><path d=\"M8 1a1 1 0 0 0-.691.291l-2 2 1.414 1.414 1.293-1.293 1.293 1.293 1.414-1.414-2-2A1 1 0 0 0 8 1zM3.309 5.291l-2 2a1 1 0 0 0 0 1.414l2 2 1.414-1.414L3.43 7.998l1.293-1.293-1.414-1.414zm9.414 0-1.414 1.414 1.293 1.293-1.293 1.293 1.414 1.414 2-2a1 1 0 0 0 0-1.414l-2-2zm-6 6-1.414 1.414 2 2a1 1 0 0 0 1.414 0l2-2-1.414-1.414-1.293 1.293-1.293-1.293z\"/></g></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
 
 [sub_resource type="InputEventKey" id="InputEventKey_smk3j"]
 device = -1
@@ -45,6 +67,36 @@ unicode = 71
 
 [sub_resource type="Shortcut" id="Shortcut_5h8jn"]
 events = [SubResource("InputEventKey_smk3j")]
+
+[sub_resource type="DPITexture" id="DPITexture_0uhy4"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 0v2H0v1h2v4H0v1h2v4H0v1h2v2h1v-2h3v-1H3V8h4l1-1V3h4v3h1V3h2V2h-2V0h-1v2H8V0H7v2H3V0zm1 3h4v4H3zm4 10v2h2v-2zm6 0v2h2v-2z\"/><path fill=\"#e0e0e0\" fill-opacity=\".8\" d=\"M7 13h2v-2a2 2 0 0 1 4 0v2h2v-2a4 4 0 0 0-8 0z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_20w56"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ffdd65\" d=\"M8 1a7 7 0 0 0 0 14A7 7 0 0 0 8 1zM7 3h2v7H7zm0 8h2v2H7z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_ywaa0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5f5f\" d=\"M8 1a7 7 0 0 0 0 14A7 7 0 0 0 8 1zM5.172 3.758 8 6.586l2.828-2.828 1.414 1.414L9.414 8l2.828 2.828-1.414 1.414L8 9.414l-2.828 2.828-1.414-1.414L6.586 8 3.758 5.172l1.414-1.414z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2eckh"]
 content_margin_left = 10.0
@@ -98,6 +150,8 @@ save_shortcut = ExtResource("2_u56xs")
 close_shortcut = ExtResource("3_7r17o")
 duplicate_shortcut = ExtResource("4_u56xs")
 delete_shortcut = ExtResource("5_7r17o")
+undo_shortcut = ExtResource("6_571sh")
+redo_shortcut = ExtResource("7_8ebbj")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=986635893]
 layout_mode = 1
@@ -129,6 +183,9 @@ flat = true
 
 [node name="File" type="PopupMenu" parent="HSplitContainer/VBoxContainer/MarginContainer/MenuBar" unique_id=2138041263]
 title = "File"
+
+[node name="Edit" type="PopupMenu" parent="HSplitContainer/VBoxContainer/MarginContainer/MenuBar" unique_id=496496210]
+title = "Edit"
 
 [node name="Hierarchy" type="Tree" parent="HSplitContainer/VBoxContainer" unique_id=155869743 node_paths=PackedStringArray("editor")]
 layout_mode = 2
@@ -167,6 +224,7 @@ button_pressed = true
 button_group = SubResource("ButtonGroup_d07u8")
 shortcut = SubResource("Shortcut_whd8v")
 shortcut_in_tooltip = false
+icon = SubResource("DPITexture_571sh")
 icon_alignment = 1
 script = ExtResource("2_whd8v")
 icon_name = "ToolSelect"
@@ -178,6 +236,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_d07u8")
 shortcut = SubResource("Shortcut_tlgcl")
 shortcut_in_tooltip = false
+icon = SubResource("DPITexture_8ebbj")
 icon_alignment = 1
 script = ExtResource("2_whd8v")
 icon_name = "ToolMove"
@@ -191,6 +250,7 @@ tooltip_text = "Use Grid Snap (Shift+G - Physical)"
 toggle_mode = true
 shortcut = SubResource("Shortcut_5h8jn")
 shortcut_in_tooltip = false
+icon = SubResource("DPITexture_0uhy4")
 icon_alignment = 1
 script = ExtResource("2_whd8v")
 icon_name = "SnapGrid"
@@ -283,12 +343,14 @@ alignment = 2
 [node name="Warning" type="Button" parent="HSplitContainer/VSplitContainer/VBoxContainer2/View/Validator/VBoxContainer/HBoxContainer" unique_id=1418479321]
 layout_mode = 2
 text = "0"
+icon = SubResource("DPITexture_20w56")
 script = ExtResource("2_whd8v")
 icon_name = "StatusWarning"
 
 [node name="Error" type="Button" parent="HSplitContainer/VSplitContainer/VBoxContainer2/View/Validator/VBoxContainer/HBoxContainer" unique_id=2139944931]
 layout_mode = 2
 text = "0"
+icon = SubResource("DPITexture_ywaa0")
 script = ExtResource("2_whd8v")
 icon_name = "StatusError"
 

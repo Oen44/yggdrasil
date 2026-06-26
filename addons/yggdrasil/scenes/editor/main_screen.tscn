@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://cq2gdowbc3f66" path="res://addons/yggdrasil/scripts/editor/yggdrasil_main_screen.gd" id="1_g325d"]
 [ext_resource type="PackedScene" uid="uid://brrwdmcb8klsr" path="res://addons/yggdrasil/scenes/editor/browser.tscn" id="2_k432n"]
 [ext_resource type="PackedScene" uid="uid://bunelgkxh0in3" path="res://addons/yggdrasil/scenes/editor/editor.tscn" id="2_sluof"]
-[ext_resource type="Shortcut" uid="uid://c3nnrgvucwk4n" path="res://addons/yggdrasil/shortcuts/undo.tres" id="3_oa8ai"]
-[ext_resource type="Shortcut" uid="uid://bthq78v61ld3e" path="res://addons/yggdrasil/shortcuts/redo.tres" id="4_28tjp"]
 
 [node name="MainScreen" type="Control" unique_id=1589016880 node_paths=PackedStringArray("tab_container", "browser", "save_confirmation", "http_request")]
 layout_mode = 3
@@ -21,8 +19,6 @@ browser = NodePath("TabContainer/Browser")
 editor_scene = ExtResource("2_sluof")
 save_confirmation = NodePath("SaveConfirmation")
 http_request = NodePath("VersionCheck")
-undo_shortcut = ExtResource("3_oa8ai")
-redo_shortcut = ExtResource("4_28tjp")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=832158700]
 layout_mode = 1

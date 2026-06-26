@@ -31,7 +31,7 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 		decoration_created.emit(node)
 		node.pressed.connect(_on_node_pressed.bind(node))
 
-func create_decoration(at_position: Vector2) -> void:
+func create_decoration(at_position: Vector2) -> YggdrasilNodeButton:
 	var node = _scene.instantiate()
 	node.node_data = YggdrasilNode.new()
 	node.id = _tree_data.get_next_id()
@@ -60,6 +60,7 @@ func create_decoration(at_position: Vector2) -> void:
 	_tree_data.decorations.append(node.node_data)
 
 	decoration_created.emit(node)
+	return node
 
 func create_from_prefab(position: Vector2, prefab: YggdrasilPrefab) -> void:
 	var node = _scene.instantiate()
@@ -93,3 +94,11 @@ func create_from_prefab(position: Vector2, prefab: YggdrasilPrefab) -> void:
 
 func _on_node_pressed(node: YggdrasilNodeButton):
 	decoration_pressed.emit(node)
+
+func delete_decoration(node: YggdrasilNodeButton) -> void:
+	_tree_view.decorations_container.remove_child(node)
+
+func restore_decoration(node: YggdrasilNodeButton) -> void:
+	_tree_view.decorations_container.add_child(node)
+	_tree_data.decorations.append(node.node_data)
+	decoration_created.emit(node)

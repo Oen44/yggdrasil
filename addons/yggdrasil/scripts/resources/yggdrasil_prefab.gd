@@ -61,7 +61,7 @@ func set_attribute(attribute_id: String, values: Array, multiallocation: bool = 
 	if multiallocation:
 		attributes[attribute_id] = []
 		for level in range(max_allocations):
-			attributes[attribute_id].append(values.duplicate())
+			attributes[attribute_id].append(values[level].duplicate())
 	else:
 		attributes[attribute_id] = values
 	attribute_changed.emit(self, attribute_id, false)
