@@ -3,6 +3,7 @@ class_name YggdrasilEditor
 extends Control
 
 const Yggdrasil = preload("res://addons/yggdrasil/scripts/shared/yggdrasil.gd")
+const FadeOut = preload("res://addons/yggdrasil/scripts/editor/ui/fade_out.gd")
 
 signal dirty_changed(editor: YggdrasilEditor, dirty: bool)
 signal tree_closed(editor: YggdrasilEditor)
@@ -21,6 +22,7 @@ signal node_attribute_changed(node: YggdrasilNodeButton, attribute_id: String, r
 @export var attributes_editor: YggdrasilAttributesEditor
 @export var context_menu: YggdrasilEditorContext
 @export var validator: YggdrasilValidator
+@export var undo_redo_notifications: Control
 
 @export_group("Tool Bar")
 @export var tools_group: ButtonGroup
@@ -112,7 +114,7 @@ func destroy():
 	hierarchy.clear()
 	var file_menu: PopupMenu = menu_bar.get_node("File")
 	file_menu.clear()
-
+	
 func _shortcut_input(event):
 	if not is_visible_in_tree():
 		return
@@ -133,11 +135,36 @@ func _on_file_menu_item_pressed(id: int):
 			close_tree()
 
 func _on_edit_menu_item_pressed(id: int):
+	var message: String
+	var icon: Texture2D
 	match id:
 		0:
+			if undo_redo.has_undo():
+				message = "Undo %s" % undo_redo.get_current_action_name()
+				icon = EditorInterface.get_editor_theme().get_icon("UndoRedo", Yggdrasil.ICON_THEME)
 			undo_redo.undo()
 		1:
+			if undo_redo.has_redo():
+				icon = EditorInterface.get_editor_theme().get_icon("Redo", Yggdrasil.ICON_THEME)
 			undo_redo.redo()
+			if icon:
+				message = "Redo %s" % undo_redo.get_current_action_name()
+	if icon:
+		_create_undo_redo_notification(message, icon)
+
+func _create_undo_redo_notification(message: String, icon: Texture2D):
+	var panel_container = FadeOut.new()
+	panel_container.interactable = false
+	var label: RichTextLabel = RichTextLabel.new()
+	label.bbcode_enabled = true
+	label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	label.fit_content = true
+	label.mouse_filter = MOUSE_FILTER_IGNORE
+	label.add_image(icon)
+	label.append_text(" ")
+	label.append_text(message)
+	panel_container.add_child(label)
+	undo_redo_notifications.get_node("List").add_child(panel_container)
 
 func save_tree():
 	last_saved_time = Time.get_ticks_msec()
@@ -157,6 +184,7 @@ func edit_tree(path: String):
 	_create_move_tool()
 
 	view_parent.move_child(validator, view_parent.get_child_count() - 1)
+	view_parent.move_child(undo_redo_notifications, view_parent.get_child_count() - 1)
 
 	settings_editor.background_changed.connect(_on_background_changed)
 	settings_editor.size_changed.connect(_on_size_changed)

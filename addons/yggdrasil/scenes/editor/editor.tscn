@@ -119,7 +119,7 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o1sp"]
 
-[node name="Editor" type="Control" unique_id=399912468 node_paths=PackedStringArray("view_parent", "menu_bar", "hierarchy", "prefabs_tab", "inspector", "settings_editor", "attributes_editor", "context_menu", "validator", "select_tool_button", "move_tool_button", "grid_snap_button", "grid_x_input", "grid_y_input", "zoom_label", "zoom_slider")]
+[node name="Editor" type="Control" unique_id=399912468 node_paths=PackedStringArray("view_parent", "menu_bar", "hierarchy", "prefabs_tab", "inspector", "settings_editor", "attributes_editor", "context_menu", "validator", "undo_redo_notifications", "select_tool_button", "move_tool_button", "grid_snap_button", "grid_x_input", "grid_y_input", "zoom_label", "zoom_slider")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -138,6 +138,7 @@ settings_editor = NodePath("HSplitContainer/TabContainer/Settings")
 attributes_editor = NodePath("HSplitContainer/TabContainer/Attributes")
 context_menu = NodePath("ContextMenu")
 validator = NodePath("HSplitContainer/VSplitContainer/VBoxContainer2/View/Validator")
+undo_redo_notifications = NodePath("HSplitContainer/VSplitContainer/VBoxContainer2/View/UndoRedoNotifications")
 tools_group = SubResource("ButtonGroup_d07u8")
 select_tool_button = NodePath("HSplitContainer/VSplitContainer/VBoxContainer2/MarginContainer/HBoxContainer/SelectMode")
 move_tool_button = NodePath("HSplitContainer/VSplitContainer/VBoxContainer2/MarginContainer/HBoxContainer/MoveMode")
@@ -353,6 +354,21 @@ text = "0"
 icon = SubResource("DPITexture_ywaa0")
 script = ExtResource("2_whd8v")
 icon_name = "StatusError"
+
+[node name="UndoRedoNotifications" type="MarginContainer" parent="HSplitContainer/VSplitContainer/VBoxContainer2/View" unique_id=753826962]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -50.0
+offset_right = 93.0
+offset_bottom = -15.0
+grow_vertical = 0
+
+[node name="List" type="VBoxContainer" parent="HSplitContainer/VSplitContainer/VBoxContainer2/View/UndoRedoNotifications" unique_id=536654907]
+layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/VSplitContainer" unique_id=1251721008]
 layout_mode = 2
