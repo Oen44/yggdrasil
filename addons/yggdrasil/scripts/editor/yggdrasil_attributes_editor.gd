@@ -163,6 +163,17 @@ func _on_item_edited():
 				attribute.value_count = int(edited.get_range(0))
 				edited.set_cell_mode(0, TreeItem.CELL_MODE_STRING)
 				edited.set_text(0, "Value Count: %d" % attribute.value_count)
+
+				if editor.tree.multiallocation:
+					if _current_node.prefab:
+						_current_node.prefab.set_attribute_value_count(attribute.id, attribute.value_count)
+					else:
+						for level in range(_current_node.max_allocations):
+							var values = _current_node.attributes[attribute.id][level]
+							while values.size() < attribute.value_count:
+								values.append(0)
+							while values.size() > attribute.value_count:
+								values.pop_back()
 				editor.node_attribute_changed.emit(_current_node, attribute.id, false)
 		changed.emit()
 		return
@@ -209,7 +220,13 @@ func _on_item_edited():
 				values.append(0)
 			
 			if _current_node.prefab:
-				_current_node.prefab.set_attribute(metadata.id, values, editor.tree.multiallocation)
+				if editor.tree.multiallocation:
+					var multiallocation_values = []
+					for level in range(_current_node.max_allocations):
+						multiallocation_values.append(values.duplicate())
+					_current_node.prefab.set_attribute(metadata.id, multiallocation_values, true)
+				else:
+					_current_node.prefab.set_attribute(metadata.id, values)
 			else:
 				if editor.tree.multiallocation:
 					_current_node.attributes[metadata.id] = []
@@ -263,7 +280,13 @@ func _on_item_edited():
 					prefab.attributes[metadata.id] = values
 				else:
 					prefab.remove_attribute(old_id)
-					prefab.set_attribute(metadata.id, values)
+					if editor.tree.multiallocation:
+						var multiallocation_values = []
+						for level in range(_current_node.max_allocations):
+							multiallocation_values.append(values.duplicate())
+						prefab.set_attribute(metadata.id, multiallocation_values, true)
+					else:
+						prefab.set_attribute(metadata.id, values, editor.tree.multiallocation)
 		
 		if _current_node:
 			edited.set_cell_mode(0, TreeItem.CELL_MODE_CHECK)

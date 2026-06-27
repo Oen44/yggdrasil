@@ -712,6 +712,7 @@ func _on_prefab_attribute_changed(prefab: YggdrasilPrefab, attribute_id: String,
 func _on_prefab_max_allocation_changed(prefab: YggdrasilPrefab):
 	for node in prefab.nodes:
 		node.max_allocations = prefab.max_allocations
+		node.attributes = prefab.attributes
 
 func _on_background_changed():
 	var color_rect = _tree_view.background_container.get_node("BackgroundColor")

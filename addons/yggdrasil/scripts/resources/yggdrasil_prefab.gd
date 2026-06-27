@@ -93,6 +93,29 @@ func set_attribute_value(attribute_id: String, index: int, value: Variant, level
 		values[index] = value
 	attribute_changed.emit(self, attribute_id, false)
 
+func set_attribute_value_count(attribute_id: String, new_count: int) -> void:
+	if not attributes.has(attribute_id):
+		return
+	
+	for level in range(max_allocations):
+		var values = attributes[attribute_id][level]
+		while values.size() < new_count:
+			values.append(0)
+		while values.size() > new_count:
+			values.pop_back()
+	attribute_changed.emit(self, attribute_id, false)
+
 func set_max_allocations(new_max: int) -> void:
 	max_allocations = new_max
+
+	for attribute_id in attributes.keys():
+		var values = attributes[attribute_id]
+		var level_values = []
+		for value in values[0]:
+			level_values.append(value)
+		while values.size() < max_allocations:
+			values.append(level_values)
+		while values.size() > max_allocations:
+			values.pop_back()
+
 	max_allocations_changed.emit(self)

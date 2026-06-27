@@ -186,9 +186,6 @@ func _on_node_selected(node: YggdrasilNodeButton):
 				_create_connection_entry(node, to_node_id)
 		
 		if not node.attributes.is_empty():
-			attributes_panel.show()
-			attributes_tree.clear()
-			attributes_tree.create_item()
 			_update_attributes(node)
 	
 	if node.prefab and not node.prefab.name_changed.is_connected(_on_prefab_name_changed):
@@ -267,6 +264,16 @@ func _on_max_allocation_changed(value: float):
 		_selected_node.prefab.set_max_allocations(int(value))
 	else:
 		_selected_node.max_allocations = int(value)
+		for attribute_id in _selected_node.attributes.keys():
+			var values = _selected_node.attributes[attribute_id]
+			var level_values = []
+			for v in values[0]:
+				level_values.append(v)
+			while values.size() < _selected_node.max_allocations:
+				values.append(level_values)
+			while values.size() > _selected_node.max_allocations:
+				values.pop_back()
+	_update_attributes(_selected_node)
 	changed.emit()
 
 func _on_icon_selected(node_type: int, texture: Texture2D, region: Vector2):
@@ -497,10 +504,20 @@ func _on_prefab_name_changed(prefab: YggdrasilPrefab):
 	name_input.text = prefab.node_name
 
 func _update_attributes(node: YggdrasilNodeButton):
+	print("_update_attributes")
+	attributes_panel.show()
+	attributes_tree.clear()
+	attributes_tree.create_item()
+
 	var regex = RegEx.new()
 	regex.compile('#')
 	var icon = EditorInterface.get_editor_theme().get_icon("Close", Yggdrasil.ICON_THEME)
-	
+	var expression_tooltip = "Edit and use mathematical expression to set value for every level.\n"
+	expression_tooltip += "Constant \"level\" is available.\n\n"
+	expression_tooltip += "Example:\n"
+	expression_tooltip += "Expression: level * 5\n"
+	expression_tooltip += "Result at level 1: 5\n"
+	expression_tooltip += "Result at level 2: 10"
 	for attr_id in node.attributes.keys():
 		var attribute: YggdrasilAttribute = editor.tree.attributes[attr_id]
 		var item: TreeItem = attributes_tree.get_root().create_child()
@@ -509,6 +526,12 @@ func _update_attributes(node: YggdrasilNodeButton):
 		item.set_metadata(0, attr_id)
 
 		if editor.tree.multiallocation:
+			for i in attribute.value_count:
+				var expression_item = item.create_child()
+				expression_item.set_text(0, "Set all \"Value %d\"" % [i + 1])
+				expression_item.set_metadata(0, attr_id)
+				expression_item.set_tooltip_text(0, expression_tooltip)
+			
 			var level_index = 0
 			for values in node.attributes[attr_id]:
 				var level_item = item.create_child()
@@ -518,6 +541,7 @@ func _update_attributes(node: YggdrasilNodeButton):
 					var value = values[i]
 					var value_item = level_item.create_child()
 					value_item.set_text(0, "Value %d: %s" % [i + 1, str(value)])
+					value_item.set_metadata(0, attr_id)
 				level_index += 1
 				
 				var tooltip = node.format_attribute_effect(regex, attribute, attr_id)
@@ -526,7 +550,7 @@ func _update_attributes(node: YggdrasilNodeButton):
 			for i in attribute.value_count:
 				var value_item = item.create_child()
 				value_item.set_text(0, "Value %d: %s" % [i + 1, str(node.attributes[attr_id][i])])
-			
+				value_item.set_metadata(0, attr_id)
 			var tooltip = node.format_attribute_effect(regex, attribute, attr_id)
 			item.set_tooltip_text(0, tooltip)
 
@@ -535,9 +559,6 @@ func _on_node_attribute_changed(node: YggdrasilNodeButton, attribute_id: String,
 		return
 	
 	if not node.attributes.is_empty():
-		attributes_panel.show()
-		attributes_tree.clear()
-		attributes_tree.create_item()
 		_update_attributes(node)
 	else:
 		attributes_panel.hide()
@@ -573,33 +594,6 @@ func _do_add_attribute(node: YggdrasilNodeButton, attr_id: String, values: Array
 		editor.node_attribute_changed.emit(node, attr_id, false)
 	changed.emit()
 
-func _on_attribute_edited():
-	var edited = attributes_tree.get_edited()
-	
-	var index = edited.get_index()
-	var value = edited.get_range(0)
-
-	if str(value).ends_with(".0"):
-		value = int(value)
-
-	if editor.tree.multiallocation:
-		var attribute_id = edited.get_parent().get_parent().get_metadata(0)
-		var level_index = edited.get_parent().get_metadata(0)["level"]
-		if _selected_node.prefab:
-			_selected_node.prefab.set_attribute_value(attribute_id, index, value, level_index)
-		else:
-			_selected_node.attributes[attribute_id][level_index][index] = value
-			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
-	else:
-		var attribute_id = edited.get_parent().get_metadata(0)
-		if _selected_node.prefab:
-			_selected_node.prefab.set_attribute_value(attribute_id, index, value)
-		else:
-			_selected_node.attributes[attribute_id][index] = value
-			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
-	
-	changed.emit()
-
 func _on_attribute_activated():
 	var selected = attributes_tree.get_selected()
 
@@ -612,12 +606,92 @@ func _on_attribute_activated():
 		if metadata and metadata is Dictionary and metadata.has("level"):
 			selected.set_collapsed(not selected.is_collapsed())
 			return
+		
+		if selected.get_parent().get_parent() == attributes_tree.get_root():
+			var index = selected.get_index()
+			var attribute: YggdrasilAttribute = editor.tree.attributes[metadata]
+			if index < attribute.value_count:
+				_edit_expression(selected)
+				attributes_tree.edit_selected(true)
+				return
 
 		_edit_attribute(selected)
 		attributes_tree.edit_selected(true)
 	else:
 		_edit_attribute(selected)
 		attributes_tree.edit_selected(true)
+
+func _edit_expression(item: TreeItem):
+	var attribute_id = item.get_metadata(0)
+	var value_index = item.get_index()
+	var value = _selected_node.attributes[attribute_id][0][value_index]
+	item.set_text(0, "%s" % str(value))
+
+func _edit_attribute(item: TreeItem):
+	var value = 0
+	if editor.tree.multiallocation:
+		var attribute_id = item.get_metadata(0)
+		var level_index = item.get_parent().get_metadata(0)["level"]
+		value = _selected_node.attributes[attribute_id][level_index][item.get_index()]
+	else:
+		var attribute_id = item.get_metadata(0)
+		value = _selected_node.attributes[attribute_id][item.get_index()]
+	
+	item.set_cell_mode(0, TreeItem.CELL_MODE_RANGE)
+	item.set_range_config(0, 0, INT64_MAX, 0.01, true)
+	item.set_range(0, value)
+
+func _on_attribute_edited():
+	editor.node_attribute_changed.disconnect(_on_node_attribute_changed)
+	var edited = attributes_tree.get_edited()
+
+	if edited.get_cell_mode(0) == TreeItem.CELL_MODE_STRING:
+		var attribute_id = edited.get_metadata(0)
+		var value_index = edited.get_index()
+		var expression = Expression.new()
+		var error = expression.parse(edited.get_text(0), ["level"])
+		edited.set_text(0, "Set all \"Value %d\"" % [value_index + 1])
+		if error != OK:
+			editor.node_attribute_changed.connect(_on_node_attribute_changed)
+			return
+		
+		for level in range(_selected_node.max_allocations):
+			var result = expression.execute([level + 1])
+			if not expression.has_execute_failed():
+				if _selected_node.prefab:
+					_selected_node.prefab.set_attribute_value(attribute_id, value_index, result, level)
+				else:
+					_selected_node.attributes[attribute_id][level][value_index] = result
+					editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
+		editor.node_attribute_changed.connect(_on_node_attribute_changed)
+		_update_attributes(_selected_node)
+		return
+	
+	var index = edited.get_index()
+	var value = edited.get_range(0)
+
+	if str(value).ends_with(".0"):
+		value = int(value)
+	
+	if editor.tree.multiallocation:
+		var attribute_id = edited.get_metadata(0)
+		var level_index = edited.get_parent().get_metadata(0)["level"]
+		if _selected_node.prefab:
+			_selected_node.prefab.set_attribute_value(attribute_id, index, value, level_index)
+		else:
+			_selected_node.attributes[attribute_id][level_index][index] = value
+			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
+	else:
+		var attribute_id = edited.get_metadata(0)
+		if _selected_node.prefab:
+			_selected_node.prefab.set_attribute_value(attribute_id, index, value)
+		else:
+			_selected_node.attributes[attribute_id][index] = value
+			editor.node_attribute_changed.emit(_selected_node, attribute_id, false)
+	
+	changed.emit()
+	editor.node_attribute_changed.connect(_on_node_attribute_changed)
+	_update_attributes(_selected_node)
 
 func _on_attribute_edit_started(item: TreeItem):
 	if item.get_parent() == attributes_tree.get_root():
@@ -629,32 +703,31 @@ func _on_attribute_edit_started(item: TreeItem):
 		if metadata and metadata is Dictionary and metadata.has("level"):
 			attributes_tree.deselect_all()
 			return
+		
+		if item.get_parent().get_parent() == attributes_tree.get_root():
+			var index = item.get_index()
+			var attribute: YggdrasilAttribute = editor.tree.attributes[metadata]
+			if index < attribute.value_count:
+				_edit_expression(item)
+				return
+		
 		_edit_attribute(item)
 	else:
 		_edit_attribute(item)
-
-func _edit_attribute(item: TreeItem):
-	var value = 0
-	if editor.tree.multiallocation:
-		var attribute_id = item.get_parent().get_parent().get_metadata(0)
-		var level_index = item.get_parent().get_metadata(0)["level"]
-		value = _selected_node.attributes[attribute_id][level_index][item.get_index()]
-	else:
-		var attribute_id = item.get_parent().get_metadata(0)
-		value = _selected_node.attributes[attribute_id][item.get_index()]
-	
-	item.set_cell_mode(0, TreeItem.CELL_MODE_RANGE)
-	item.set_range_config(0, 0, 32000, 0.01, true)
-	item.set_range(0, value)
 
 func _on_attribute_edit_canceled(item: TreeItem):
 	var value = 0
 	if editor.tree.multiallocation:
-		var attribute_id = item.get_parent().get_parent().get_metadata(0)
+		var attribute_id = item.get_metadata(0)
+		if item.get_parent().get_parent() == attributes_tree.get_root():
+			var index = item.get_index()
+			var attribute: YggdrasilAttribute = editor.tree.attributes[attribute_id]
+			if index < attribute.value_count:
+				return
 		var level_index = item.get_parent().get_metadata(0)["level"]
 		value = _selected_node.attributes[attribute_id][level_index][item.get_index()]
 	else:
-		var attribute_id = item.get_parent().get_metadata(0)
+		var attribute_id = item.get_metadata(0)
 		value = _selected_node.attributes[attribute_id][item.get_index()]
 
 	item.set_cell_mode(0, TreeItem.CELL_MODE_STRING)
