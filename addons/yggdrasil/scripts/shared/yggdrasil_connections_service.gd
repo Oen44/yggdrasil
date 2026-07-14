@@ -12,6 +12,7 @@ signal node_disconnected(from_node: YggdrasilNodeButton, to_node_id: int)
 func load_tree(tree_data: YggdrasilTree) -> void:
 	_tree_data = tree_data
 
+	var needs_refcount_fix = Yggdrasil.VERSION == "2.3.2"
 	var invalid_nodes: Array[int] = []
 	for node_data in _tree_data.nodes:
 		var node = _tree_view.nodes_service.get_node(node_data.id)
@@ -25,6 +26,16 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 			line.texture = _tree_data.line_texture_normal
 			line.texture_mode = Line2D.LINE_TEXTURE_TILE
 			line.joint_mode = Line2D.LINE_JOINT_BEVEL
+
+			if needs_refcount_fix: # Had to change line data from RefCounted to Resource
+				for line_data in node_data.line_data.values():
+					if not line_data is Resource:
+						var new_line_data = YggdrasilLineData.new()
+						new_line_data.line_type = line_data.line_type
+						new_line_data.curve_height = line_data.curve_height
+						new_line_data.segments = line_data.segments
+						new_line_data.reversed = line_data.reversed
+						node_data.line_data[out_node_id] = new_line_data
 			
 			var line_data = node_data.line_data.get(out_node_id, YggdrasilLineData.new())
 			_connect_nodes(line, node, target_node, line_data)

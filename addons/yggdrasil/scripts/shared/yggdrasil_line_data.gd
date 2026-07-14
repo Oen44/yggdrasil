@@ -1,5 +1,5 @@
 class_name YggdrasilLineData
-extends RefCounted
+extends Resource
 
 enum LineType {
 	STRAIGHT,
