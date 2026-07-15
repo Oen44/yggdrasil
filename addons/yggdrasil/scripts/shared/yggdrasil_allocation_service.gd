@@ -75,6 +75,9 @@ func on_node_pressed(node: YggdrasilNodeButton) -> void:
 			_deallocate_node(node)
 
 func confirm_preallocations() -> void:
+	if _preallocated_nodes.is_empty():
+		return
+	
 	for node_id in _preallocated_nodes:
 		var node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(node_id)
 		_allocate_node(node)
@@ -113,6 +116,9 @@ func exit_refund_mode() -> void:
 	refund_mode_exited.emit()
 
 func confirm_refund() -> void:
+	if _refund_nodes.is_empty():
+		return
+	
 	for node_id in _refund_nodes:
 		var node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(node_id)
 		_deallocate_node(node)
