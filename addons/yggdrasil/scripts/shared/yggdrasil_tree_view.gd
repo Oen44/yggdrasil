@@ -189,3 +189,6 @@ func translate_position(pos: Vector2) -> Vector2:
 
 func get_mouse_position_in_tree() -> Vector2:
 	return translate_position(main_container.get_local_mouse_position())
+
+func get_tree_data() -> YggdrasilTree:
+	return _tree_data

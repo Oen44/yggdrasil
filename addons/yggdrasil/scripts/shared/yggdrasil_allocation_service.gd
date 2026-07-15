@@ -89,6 +89,9 @@ func clear_preallocations() -> void:
 
 	_preallocated_nodes.clear()
 
+func has_preallocations() -> bool:
+	return not _preallocated_nodes.is_empty()
+
 func enter_refund_mode() -> void:
 	if _refund_mode:
 		exit_refund_mode()
@@ -123,6 +126,9 @@ func is_refund_mode() -> bool:
 
 func get_refund_nodes() -> Array[int]:
 	return _refund_nodes.duplicate()
+
+func has_refund_nodes() -> bool:
+	return not _refund_nodes.is_empty()
 
 func _can_preallocate(node: YggdrasilNodeButton) -> bool:
 	if preallocation_check and not preallocation_check.call():
