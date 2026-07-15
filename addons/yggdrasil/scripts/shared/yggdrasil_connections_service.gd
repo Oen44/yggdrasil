@@ -196,12 +196,18 @@ func _refresh_line_state(node_id: int, neighbor_id: int, is_out: bool):
 	var to_node: YggdrasilNodeButton = _tree_view.nodes_service.get_node(to_id)
 
 	var from_active = from_node.allocated and not from_node.refund or from_node.preallocated
-	var to_active = to_node.allocated and not to_node.refund
+	var to_active = to_node.allocated and not to_node.refund or to_node.preallocated
+
 	if _tree_data.multiallocation:
 		if from_node.refund:
 			from_active = from_node.allocation_level > 1
 		else:
 			from_active = from_node.preallocated or from_node.allocated
+
+		if to_node.refund:
+			to_active = to_node.allocation_level > 1
+		else:
+			to_active = to_node.preallocated or to_node.allocated
 
 	if from_active and to_active:
 		line.texture = _tree_data.line_texture_active
