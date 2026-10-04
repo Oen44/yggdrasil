@@ -40,7 +40,7 @@ func load_tree(tree_data: YggdrasilTree) -> void:
 			var line_data = node_data.line_data.get(out_node_id, YggdrasilLineData.new())
 			_connect_nodes(line, node, target_node, line_data)
 			_tree_view.lines_container.add_child(line)
-			if not _tree_data.revealed:
+			if not _tree_data.revealed and not Engine.is_editor_hint():
 				line.visible = false
 			line_created.emit(line, node_data.id, out_node_id)
 			node_connected.emit(node, out_node_id)
@@ -217,7 +217,7 @@ func _refresh_line_state(node_id: int, neighbor_id: int, is_out: bool):
 		line.visible = true
 	else:
 		line.texture = _tree_data.line_texture_normal
-		if not _tree_data.revealed:
+		if not _tree_data.revealed and not Engine.is_editor_hint():
 			line.visible = false
 
 func restore_connections(from_node: YggdrasilNodeButton) -> void:

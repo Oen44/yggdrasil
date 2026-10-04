@@ -45,7 +45,7 @@ signal multiallocation_changed
 @export var line_intermediate_input: InspectorTextureInput
 @export var line_active_input: InspectorTextureInput
 @export_group("Interaction")
-@export var revelead_checkbox: CheckBox
+@export var revealed_checkbox: CheckBox
 @export var allocation_checkbox: CheckBox
 @export var preallocation_checkbox: CheckBox
 @export var multiallocation_checkbox: CheckBox
@@ -97,7 +97,7 @@ func init():
 	line_active_input.clear_button.pressed.connect(_on_line_active_cleared)
 	line_active_input.texture_dropped.connect(_on_line_active_changed)
 
-	revelead_checkbox.toggled.connect(_on_revealed_toggled)
+	revealed_checkbox.toggled.connect(_on_revealed_toggled)
 	allocation_checkbox.toggled.connect(_on_allocation_toggled)
 	preallocation_checkbox.toggled.connect(_on_preallocation_toggled)
 	multiallocation_checkbox.toggled.connect(_on_multiallocation_toggled)
@@ -162,7 +162,7 @@ func load_tree(tree_data: YggdrasilTree):
 		line_active_input.empty_label.show()
 		line_active_input.clear_button.hide()
 	
-	revelead_checkbox.set_pressed_no_signal(tree_data.revealed)
+	revealed_checkbox.set_pressed_no_signal(tree_data.revealed)
 	allocation_checkbox.set_pressed_no_signal(tree_data.allocation)
 	preallocation_checkbox.set_pressed_no_signal(tree_data.preallocation)
 	multiallocation_checkbox.set_pressed_no_signal(tree_data.multiallocation)
