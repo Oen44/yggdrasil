@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bunelgkxh0in3" path="res://addons/yggdrasil/scenes/editor/editor.tscn" id="2_sluof"]
 
 [node name="MainScreen" type="Control" unique_id=1589016880 node_paths=PackedStringArray("tab_container", "browser", "save_confirmation", "http_request")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

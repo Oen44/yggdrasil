@@ -2,23 +2,26 @@
 extends EditorPlugin
 
 const Yggdrasil = preload("res://addons/yggdrasil/scripts/shared/yggdrasil.gd")
-const MainScreen = preload("res://addons/yggdrasil/scenes/editor/main_screen.tscn")
+const MAIN_SCREEN_PATH = "res://addons/yggdrasil/scenes/editor/main_screen.tscn"
 
 var _distraction = false
 var _scene_container = null
 
-var _main_screen_instance: YggdrasilMainScreen = null
+var _main_screen_instance: Control = null # Untyped on purpose: these scripts parse YggdrasilLoader before _enter_tree() registers it.
 var _dirty_trees = {}
 
-func _enable_plugin():
-	add_autoload_singleton("YggdrasilLoader", Yggdrasil.Loader)
-	add_autoload_singleton("YggdrasilSerializer", Yggdrasil.Serializer)
+func _register_autoloads():
+	if not ProjectSettings.has_setting("autoload/YggdrasilLoader"):
+		add_autoload_singleton("YggdrasilLoader", Yggdrasil.Loader)
+	if not ProjectSettings.has_setting("autoload/YggdrasilSerializer"):
+		add_autoload_singleton("YggdrasilSerializer", Yggdrasil.Serializer)
 
 func _disable_plugin():
 	remove_autoload_singleton("YggdrasilLoader")
 	remove_autoload_singleton("YggdrasilSerializer")
 
 func _enter_tree():
+	_register_autoloads()
 	_distraction = EditorInterface.distraction_free_mode
 	_scene_container = EditorInterface.get_base_control().find_children("*", "EditorSceneTabs", true, false)[0]
 	
@@ -42,7 +45,8 @@ func _enter_tree():
 	}
 	ProjectSettings.add_property_info(property_info)
 	
-	_main_screen_instance = MainScreen.instantiate()
+	_main_screen_instance = load(MAIN_SCREEN_PATH).instantiate()
+	_main_screen_instance.visible = false
 	EditorInterface.get_editor_main_screen().add_child(_main_screen_instance)
 	
 	_main_screen_instance.dirty_changed.connect(_on_tree_dirty_changed)
@@ -75,13 +79,13 @@ func _get_plugin_name():
 func _get_plugin_icon():
 	return EditorInterface.get_editor_theme().get_icon("Node", Yggdrasil.ICON_THEME)
 
-func _on_tree_dirty_changed(editor: YggdrasilEditor, dirty: bool):
+func _on_tree_dirty_changed(editor: Control, dirty: bool):
 	if dirty:
 		_dirty_trees[editor] = true
 	else:
 		_dirty_trees.erase(editor)
 
-func _on_tree_closed(editor: YggdrasilEditor):
+func _on_tree_closed(editor: Control):
 	_dirty_trees.erase(editor)
 
 func _get_unsaved_status(for_scene: String) -> String:
